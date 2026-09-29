@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* =========================
+   전체 페이지
+========================= */
+
+.wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-end;
+  height: 200px;
+  padding: 10px;
+  border-bottom: solid 1px;
+}
+
+.region {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 24px;
+}
+
+.logo {
+  font-size: 36px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.name {
+    display: flex;
+    gap: 5px;
+}
+
+.data-name {
+    font-weight: bold;
+}
+
+.logout {
+    height: 32px;
+}
+
+.nav {
+  width: 220px;
+  border-right: solid 1px;
+  padding: 10px;
+}
+
+.nav ul {
+  padding-left: 20px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    display: flex;
+}
+
+
+/* =========================
+   SIDE NAV
+========================= */
+
+.boardTitle {
+  text-decoration-line: underline;
+  padding: 20px 0 3px 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.navSearchBar {
+  margin-top: 30px;
+  display: flex;
+  height: 30px;
+  gap: 5px;
+}
+
+.navSearchBar .searchInput {
+  width: 150px;
+}
+
+.navSearchBar .searchBtn {
+  width: 50px;
+}
+
+/* =========================
+   PAGINATION, SERCHBAR
+========================= */
+
+.paginationSearchWrap {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.pagination {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.pagination a {
+  margin: 0 5px;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+search {
+  display: flex;
+  margin: 10px auto;
+  height: 30px;
+  gap: 5px;
+}
+
+.searchBar {
+  display: flex;
+  gap: 5px;
+}
+
+.searchBar .searchBtn {
+  width: 50px;
+}
+
