@@ -1,0 +1,160 @@
+* {
+  /* padding: 0; */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.warp {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-end;
+  height: 200px;
+  padding: 10px;
+  border-bottom: solid 1px;
+}
+
+.name {
+  margin-right: 10px;
+}
+
+.region {
+  font-size: 24px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  display: flex;
+  text-align: center;
+  line-height: 24px;
+  align-items: center;
+}
+.logo {
+  font-size: 36px;
+}
+
+.logout {
+  height: 30px;
+}
+
+.headerR {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  /* padding: 10px; */
+}
+
+.nav {
+  width: 220px;
+  border-right: solid 1px;
+  padding: 10px;
+}
+
+.nav ul {
+  padding-left: 20px;
+}
+
+.boardTitle {
+  text-decoration-line: underline;
+  padding: 20px 0 3px 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.commentCount {
+  color: red;
+}
+
+.navSearchBar {
+  margin-top: 30px;
+  display: flex;
+  height: 30px;
+  gap: 5px;
+}
+
+.navSearchBar .searchInput {
+  width: 150px;
+}
+
+.bodyWarp {
+  min-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bodyWrapHader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boardList {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 20px;
+}
+
+th {
+  border-bottom: solid 1px #000;
+}
+
+.paginationSearchWrap {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+.pagination {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.pagination a {
+  margin: 0 5px;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+search {
+  display: flex;
+  margin: 10px auto;
+  height: 30px;
+  gap: 5px;
+}
+
+.searchBar {
+  display: flex;
+  gap: 5px;
+}
+
+.searchBtn {
+  width: 50px;
+}

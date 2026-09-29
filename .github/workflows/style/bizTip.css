@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.bodyWrap {
+  min-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bodyWrapHader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boardList {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 20px;
+}
+
+th {
+  border-bottom: solid 1px #000;
+}
+
+.commentCount {
+  color: red;
+}

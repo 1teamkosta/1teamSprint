@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* =========================
+   전체 페이지
+========================= */
+
+.page-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.region {
+    display: flex;
+    align-items: center;
+
+    font-size: 24px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    font-size: 36px;
+}
+
+
+.header-right {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.name {
+    display: flex;
+    gap: 5px;
+}
+
+
+.data-name {
+    font-weight: bold;
+}
+
+
+.logout {
+    height: 32px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    display: flex;
+}
+
+
+/* =========================
+   SIDE NAV
+========================= */
+
+.side-nav {
+    width: 220px;
+    min-width: 220px;
+    padding: 10px;
+    border-right: 1px solid #000;
+}
+
+.menu-group {
+    margin-bottom: 15px;
+}
+
+.menu-title {
+    padding: 20px 0 3px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+
+.menu-list {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+
+.menu-list li {
+    margin: 5px 0;
+}
+
+
+.menu-list a:hover {
+    text-decoration: underline;
+}
+
+
+.side-search {
+    margin-top: 30px;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 20px;
+}
+
+
+/* =========================
+   게시판
+========================= */
+
+.table {
+    margin-bottom: 0;
+}
+
+
+.comment-count {
+    color: red;
+}
+
+
+/* =========================
+   하단 영역
+========================= */
+
+.bottom-area {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 300px;
+}
+
+
+/* =========================
+   검색
+========================= */
+
+.board-search {
+    margin-top: 10px;
+}
+
+.search-select {
+    max-width: 100px;
+}
+
+
+/* =========================
+   반응형
+========================= */
+
+@media (max-width: 768px) {
+    .page-wrap {
+        width: 100%;
+    }
+
+    .site-header {
+        height: auto;
+        min-height: 150px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .side-nav {
+        width: 100%;
+        min-width: 0;
+        border-right: none;
+        border-bottom: 1px solid #000;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .bottom-area {
+        width: 100%;
+    }
+}
