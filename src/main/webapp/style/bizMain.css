@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.commentCount {
+  color: red;
+  margin-right: 10px;
+}
+
+.bodyWarp {
+  min-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bodyWrapHader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableTr{
+  border-bottom: solid 1px #000;
+  margin-bottom: 10px;
+}
+
+.product-gridmain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  padding: 30px;
+  margin-bottom: 100px;
+}
+
+.boardListmain {
+  display: flex;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.titleBox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewBox{
+  text-align: right;
+  white-space: nowrap;
+}
+
+.boardTitle-textlimit{
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
+}
