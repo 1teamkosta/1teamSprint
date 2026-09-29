@@ -1,0 +1,14 @@
+# --- Eclipse Metadata ---
+.metadata/
+.settings/
+.recommenders/
+
+# --- Build Outputs ---
+bin/
+build/
+target/
+*.class
+
+# --- Project Files ---
+.classpath
+.project
