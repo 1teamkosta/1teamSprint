@@ -1,6 +1,7 @@
 # --- Eclipse Metadata ---
 .metadata/
 .settings/
+*.settings/
 .recommenders/
 
 # --- Build Outputs ---
@@ -11,4 +12,5 @@ target/
 
 # --- Project Files ---
 .classpath
+*.classpath
 .project
