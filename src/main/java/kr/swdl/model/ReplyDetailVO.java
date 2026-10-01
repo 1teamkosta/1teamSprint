@@ -1,13 +1,15 @@
 package kr.swdl.model;
 
-public class replyDetailVO {
+public class ReplyDetailVO {
 	private String replyNumber;
 	private String memberNumber;
 	private String content;
 	private String writeDate;
 	private String tradeNumber;
 	
-	public replyDetailVO(String replyNumber, String memberNumber, String content, String writeDate,
+	
+	
+	public ReplyDetailVO(String replyNumber, String memberNumber, String content, String writeDate,
 			String tradeNumber) {
 		setReplyNumber(replyNumber);
 		setMemberNumber(memberNumber);
