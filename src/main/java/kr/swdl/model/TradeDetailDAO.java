@@ -1,45 +1,47 @@
 package kr.swdl.model;
 
+import java.util.List;
+
 public class TradeDetailDAO {
-	public  TradeDetailVO getTradePost(String tradeNumber) {
+	
+	//조회수 중복처리
+	public boolean isTradeViewTable() {
+		return false;
+	}
+	//조회수 증가
+	public boolean setTradeBoardViewCount() {
+		return false;
+	}
+	//뷰테이블 추가
+	public boolean addTradeViewTable() {
+		return false;
+	}
+	//게시글 상세 조회
+	public TradeVO getTradeBoardDetail(){
 		return null;
 	}
-	public boolean addTradePost(String memberNumber, String title, String content, int price)
-	{
-		return false;	
+	//게시글 댓글 조회
+	public List<TradeDetailReplyVO> getTradeBoardDetailReply(){
+		return null;
 	}
-	public boolean updateTradePost(String tradeNumber) {
+	//게시글 삭제
+	public boolean delTradeBoard() {
 		return false;
 	}
-	public boolean deleteTradePost(String tradeNumber)
-	{
+	//게시글 수정
+	public boolean setTradeBoard(String mainImage,String title,int price,String content) {
 		return false;
 	}
-	public boolean addReply(String memberNumber, String content) {
+	//댓글 등록
+	public boolean addTradeBoardReply(String content) {
 		return false;
 	}
-	public boolean updateReply(String replyNumber) {
+	//댓글 수정
+	public boolean setTradeBoardReply(String content) {
 		return false;
 	}
-
-	public boolean deleteReply(String replyNumber) {
+	//댓글 삭제
+	public boolean delTradeBoardReply() {
 		return false;
 	}
-
-	public boolean updateTradeView (String tradeNumber) {
-		return false;
-	}
-
-	public boolean isTradeView(String memberNumber, String tradeNumber) {
-		return false;
-	}
-
-	public boolean addTradeView(String memberNumber, String tradeNumber) {
-		return false;
-	}
-
-
-
-
-
 }

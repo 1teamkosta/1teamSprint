@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>장사 TIP</title>
+	<title>중고거래</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"/>
 	<link rel="stylesheet" href="../style/common.css">
@@ -29,8 +29,9 @@
             </div>
 
             <div class="th">
+            	<div class="subColor">11</div>
                 <h1>테이블 팝니다~~</h1>
-                <h4 class="subColor">2026.09.27 신중동 불주먹 <br> 조회 1615</h4>
+                <div class="subColor">2026.09.27 임사장 <br> 조회 1615</div>
                 <h1 class="bordergap">5만원</h1>  
              </div>
               
@@ -51,24 +52,27 @@
           </div>
           
           <div class="commentList">
+
+              <div class="commentItem">
+                <div class="commentUser">
+                임사장
+                </div>
+                <div class="commentbox">
+                안 팔렸습니다~
+                </div>
+                <div class="subColor">
+                2026.09.28
+                <button type="button" class="commentBtn" id= "submitComment">수정</button> |
+                <button type="button" class="commentBtn" id= "submitComment">삭제</button>
+                </div>
+              </div>
+              
               <div class="commentItem">
                 <div class="commentUser">
                 밀크티사장
                 </div>
                 <div class="commentbox">
                 혹시 팔렷슬까요
-                </div>
-                <div class="subColor">
-                2026.09.28
-                </div>
-              </div>
-
-              <div class="commentItem">
-                <div class="commentUser">
-                밀크티사장
-                </div>
-                <div class="commentbox">
-                안녕하세요
                 </div>
                 <div class="subColor">
                 2026.09.28
@@ -122,6 +126,7 @@
                 2026.09.27
                 </div>
               </div>
+              
 
               <div class="commentItem">
                 <div class="commentUser">

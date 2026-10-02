@@ -29,16 +29,15 @@
             </div>
 
             <div class="th">
+            	<div class="subColor">12</div>
                 <h1>지역변경문의</h1>
-                <h4 class="subTitle">2026.09.20 신중동 불주먹 <br> 조회 14 추천 3</h4>
+                <div class="subTitle">2026.09.20 임사장 <br> 조회 14</div>
 
             </div>
               
               <span class="contentBox">가게 위치를 옮기게 되어 지역변경하고 싶습니다 <br> 구로구 구로1동으로 옮겨주세요!</span>
 
             <div class="commentHeader">
-              <button type="button" class="likeBtn">
-              <span class="material-symbols-outlined">thumb_up</span> 추천 3</button>
               <h4>답변 1</h4>
             </div>
 
@@ -50,6 +49,19 @@
           </div>
           
           <div class="commentList">
+              <div class="commentItem">
+                <div class="commentUser">
+                임사장
+                </div>
+                <div class="commentbox">
+                고맙읍니다.
+                </div>
+                <div class="subColor">
+                2026.09.28
+                <button type="button" class="commentBtn" id= "submitComment">수정</button> |
+                <button type="button" class="commentBtn" id= "submitComment">삭제</button>
+                </div>
+              </div>
               <div class="commentItem">
                 <div class="commentUser">
                 관리자

@@ -5,9 +5,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>장사 TIP</title>
+	<title>신고</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"/>
 	<link rel="stylesheet" href="../style/common.css">
 	<link rel="stylesheet" href="../style/bizQuestionReportDetails.css">
 </head>
@@ -29,16 +29,15 @@
             </div>
 
             <div class="th">
+            	<div class="subColor">13</div>   
                 <h1>회원 신고합니다</h1>
-                <h4 class="subTitle">2026.09.20 신중동 불주먹 <br> 조회 23 추천 5</h4>
+                <div class="subTitle">2026.09.20 임사장 <br> 조회 23 </div>
 
             </div>
               
-              <span class="content">임사장님이 다른분 글에 여러번 댓글을 다시면서 불편하게 합니다... <br> 이 분 정지시킬 수 업나요...?</span>
+              <span class="content">신중동불주먹님이 다른분 글에 여러번 댓글을 다시면서 불편하게 합니다... <br> 이 분 정지시킬 수 업나요...?</span>
 
             <div class="commentHeader">
-              <button type="button" class="likeBtn">
-              <span class="material-symbols-outlined">thumb_up</span> 추천 5</button>
               <h4>답변 1</h4>
             </div>
 
@@ -50,6 +49,19 @@
           </div>
           
           <div class="commentList">
+              <div class="commentItem">
+                <div class="commentUser">
+                임사장
+                </div>
+                <div class="commentbox">
+                감사합니다.
+                </div>
+                <div class="subColor">
+                2026.09.28
+                <button type="button" class="commentBtn" id= "submitComment">수정</button> |
+                <button type="button" class="commentBtn" id= "submitComment">삭제</button>
+                </div>
+              </div>
              <div class="commentItem">
                 <div class="commentUser">
                 관리자
