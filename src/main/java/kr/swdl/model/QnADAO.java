@@ -4,23 +4,23 @@ import java.util.List;
 
 public class QnADAO {
 	
-	public QnAVO getQnAPost(String questionNumber) {
+	public QnAVO getQnA(String questionNumber) {
 		return null;
 	}
 	
-	public boolean addQnAPost(String memberNumber, String title, String content) {
+	public boolean addQnA(String memberNumber, String title, String content) {
 		return false;
 	}
 	
-	public boolean updateQnAPost(String questionNumber) {
+	public boolean setQnA(String questionNumber) {
 		return false;
 	}
 	
-	public boolean deleteQnAPost(String questionNumber) {
+	public boolean deleteQnA(String questionNumber) {
 		return false;
 	}
 	
-	public List<AnswerVO> getAnswerPost(String questionNumber){
+	public List<AnswerVO> getAnswer(String questionNumber){
 		return null;
 	}
 	
@@ -28,7 +28,7 @@ public class QnADAO {
 		return false;
 	}
 	
-	public boolean updateAnswer(String answerNumber) {
+	public boolean setAnswer(String answerNumber) {
 		return false;
 	}
 	
@@ -40,7 +40,7 @@ public class QnADAO {
 		return false;
 	}
 	
-	public boolean updateQnAView (String questionNumber) {
+	public boolean setQnAView (String questionNumber) {
 		return false;
 	}
 	

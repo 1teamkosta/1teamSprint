@@ -28,8 +28,4 @@ public class TradeListDAO {
 		return null;
 	}
 	
-	//거래글 작성
-	public boolean addTradeBoard(String mainImage,String title,int price,String content) {
-		return false;
-	}
 }

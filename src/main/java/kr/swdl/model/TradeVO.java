@@ -13,13 +13,13 @@ public class TradeVO {
 	private int price;
 	private String content;
 	private int replyCount;
-	private List<TradeDetailReplyVO> reply;
+	private List<ReplyVO> reply;
 	
-	public TradeVO(String tradeNumber, String memberNumber, int viewCount, String title, String mainImage, int price, String nickname, String writeDate) {
+	public TradeVO(String tradeNumber, int viewCount, String title, String mainImage, int price, String nickname, String writeDate) {
 		this(tradeNumber, null, title, writeDate, nickname, viewCount, mainImage, price, null, 0, null);
 	}
 	public TradeVO(String tradeNumber, String memberNumber, String title, String writeDate, String nickName,
-			int viewCount, String mainImage, int price, String content, int replyCount, List<TradeDetailReplyVO> reply) {
+			int viewCount, String mainImage, int price, String content, int replyCount, List<ReplyVO> reply) {
 		super();
 		setTradeNumber(tradeNumber);
 		setMemberNumber(memberNumber);
@@ -93,10 +93,10 @@ public class TradeVO {
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
-	public List<TradeDetailReplyVO> getReply() {
+	public List<ReplyVO> getReply() {
 		return reply;
 	}
-	public void setReply(List<TradeDetailReplyVO> reply) {
+	public void setReply(List<ReplyVO> reply) {
 		this.reply = reply;
 	}
 	
