@@ -6,7 +6,7 @@ public class AnswerDetailVO {
 	private String nickname;
 	private String writeDate;
 	private boolean selectState;
-	
+	//test
 	public AnswerDetailVO(String answerNumber, String memberNuber, String nickname, String writeDate, boolean selectState) {
 		setAnswerNumber(answerNumber);
 		setMemberNumber(memberNuber);
