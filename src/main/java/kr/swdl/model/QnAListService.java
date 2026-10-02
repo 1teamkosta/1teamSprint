@@ -12,4 +12,14 @@ public class QnAListService {
 		}
 		return null;
 	}
+	public List<QnAVO> getQuestionsSearchByTitle(String title){
+		try {
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, title);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 }
