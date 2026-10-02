@@ -47,6 +47,6 @@ public class QnAListDAOTest {
 	}
 	@Test
 	public void 작성자로_검색하기() throws SQLException{
-		System.out.println(new QnAListDAO(conn).getQuestionsSearchByContent(1, 10, "임사장"));
+		System.out.println(new QnAListDAO(conn).getQuestionsSearchByNickname(1, 10, "최준호"));
 	}
 }

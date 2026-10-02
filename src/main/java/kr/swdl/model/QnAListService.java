@@ -36,5 +36,13 @@ public class QnAListService {
 		}
 		return null;
 	}
+	public List<QnAVO> getQuestionsSearchByNickname(String keyword){
+		try {
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
