@@ -39,5 +39,9 @@ public class QnAListServiceTest {
 	public void 질문글_제목_내용검색() {
 		System.out.println(new QnAListService().getQuestionsSearchByTitleOrContent("업"));
 	}
+	@Test
+	public void 질문글_닉네임검색() {
+		System.out.println(new QnAListService().getQuestionsSearchByNickname("최준호"));
+	}
 	
 }
