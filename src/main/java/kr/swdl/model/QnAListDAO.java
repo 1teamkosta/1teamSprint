@@ -33,11 +33,11 @@ public class QnAListDAO {
 		return list;
 	}
 	
-	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String title) {
+	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String keyword) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE);
-			pstmt.setString(1, title);
+			pstmt.setString(1, keyword);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			ResultSet rs=pstmt.executeQuery();
@@ -51,11 +51,11 @@ public class QnAListDAO {
 		}
 		return list;
 	}
-	public List<QnAVO> getQuestionsSearchByContent(int start, int end, String content) {
+	public List<QnAVO> getQuestionsSearchByContent(int start, int end, String keyword) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_CONTENT);
-			pstmt.setString(1, content);
+			pstmt.setString(1, keyword);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			ResultSet rs=pstmt.executeQuery();
@@ -70,12 +70,12 @@ public class QnAListDAO {
 		return list;
 	}
 	
-	public List<QnAVO> getQuestionsSearchByTitleOrContent(int start, int end, String title, String content) {
+	public List<QnAVO> getQuestionsSearchByTitleOrContent(int start, int end, String keyword) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE_OR_CONTENT);
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
 			pstmt.setInt(3, start);
 			pstmt.setInt(4, end);
 			ResultSet rs=pstmt.executeQuery();
@@ -90,11 +90,11 @@ public class QnAListDAO {
 		return list;
 	}
 	
-	public List<QnAVO> getQuestionsSearchByNickname(int start, int end, String nickname) {
+	public List<QnAVO> getQuestionsSearchByNickname(int start, int end, String keyword) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_NICKNAME);
-			pstmt.setString(1, nickname);
+			pstmt.setString(1, keyword);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			ResultSet rs=pstmt.executeQuery();
