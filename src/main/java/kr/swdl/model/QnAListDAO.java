@@ -52,7 +52,22 @@ public class QnAListDAO {
 		return list;
 	}
 	public List<QnAVO> getQuestionSearchByContent(int start, int end, String content) {
-		return null;
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			pstmt.setString(1, content);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	public List<QnAVO> getQuestionSearchByTitleOrContent(int start, int end, String title, String content) {
