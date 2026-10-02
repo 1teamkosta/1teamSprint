@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.util.List;
 
 public class QnAListDAO {
-//	private Connection conn;
-//	
-//	public QuestionListDAO(Connection conn) {
-//		this.conn = conn;
-//	}
+	private Connection conn;
+	
+	public QnAListDAO(Connection conn) {
+		this.conn = conn;
+	}
 	
 	public List<QnADAO> getQuestions(int start, int end) {
 		return null;
