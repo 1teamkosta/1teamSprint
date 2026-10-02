@@ -1,8 +1,8 @@
 package kr.swdl.model;
 
 public interface Query {
-	String GET_QUESTIONS="SELECT statement, title, nickname, write_date, view_count, answerCount "
-			+ "FROM (SELECT statement, title, m.nickname, write_date, view_count, "
+	String GET_QUESTIONS="SELECT questionNumber, statement, title, nickname, write_date, view_count, answerCount "
+			+ "FROM (SELECT questionNumber, statement, title, m.nickname, write_date, view_count, "
 			+ "(SELECT COUNT(answer_number) "
 			+ "FROM answer "
 			+ "WHERE question_number = q.question_number) as answerCount, "

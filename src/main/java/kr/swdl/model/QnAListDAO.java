@@ -1,6 +1,11 @@
 package kr.swdl.model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QnAListDAO {
@@ -11,7 +16,21 @@ public class QnAListDAO {
 	}
 	
 	public List<QnAVO> getQuestions(int start, int end) {
-		return null;
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String keyword) {
