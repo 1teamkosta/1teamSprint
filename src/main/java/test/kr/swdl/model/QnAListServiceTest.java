@@ -29,7 +29,10 @@ public class QnAListServiceTest {
 	}
 	@Test
 	public void 질문글_제목검색() {
-		System.out.println(new QnAListService().getQuestionsSearchByTitle(" "));
+		System.out.println(new QnAListService().getQuestionsSearchByTitle("나요"));
 	}
-	
+	@Test
+	public void 질문글_내용검색() {
+		System.out.println(new QnAListService().getQuestionsSearchByContent("업"));
+	}
 }

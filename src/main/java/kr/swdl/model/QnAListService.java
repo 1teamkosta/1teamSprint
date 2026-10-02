@@ -22,7 +22,7 @@ public class QnAListService {
 	}
 	public List<QnAVO> getQuestionsSearchByContent(String keyword){
 		try {
-			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByContent(1, 10, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -30,7 +30,7 @@ public class QnAListService {
 	}
 	public List<QnAVO> getQuestionsSearchByTitleOrContent(String keyword){
 		try {
-			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitleOrContent(1, 10, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -38,7 +38,7 @@ public class QnAListService {
 	}
 	public List<QnAVO> getQuestionsSearchByNickname(String keyword){
 		try {
-			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByNickname(1, 10, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
