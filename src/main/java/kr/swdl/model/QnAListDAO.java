@@ -36,7 +36,7 @@ public class QnAListDAO {
 	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String title) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE);
 			pstmt.setString(1, title);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
@@ -54,7 +54,7 @@ public class QnAListDAO {
 	public List<QnAVO> getQuestionSearchByContent(int start, int end, String content) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_CONTENT);
 			pstmt.setString(1, content);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
@@ -73,7 +73,7 @@ public class QnAListDAO {
 	public List<QnAVO> getQuestionSearchByTitleOrContent(int start, int end, String title, String content) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE_OR_CONTENT);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, start);
@@ -93,7 +93,7 @@ public class QnAListDAO {
 	public List<QnAVO> getQuestionSearchByNickname(int start, int end, String nickname) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_NICKNAME);
 			pstmt.setString(1, nickname);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
