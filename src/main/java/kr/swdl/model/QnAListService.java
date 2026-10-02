@@ -12,22 +12,29 @@ public class QnAListService {
 		}
 		return null;
 	}
-	public List<QnAVO> getQuestionsSearchByTitle(String title){
+	public List<QnAVO> getQuestionsSearchByTitle(String keyword){
 		try {
-			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, title);
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	public List<QnAVO> getQuestionsSearchByContent(String content){
+	public List<QnAVO> getQuestionsSearchByContent(String keyword){
 		try {
-			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, content);
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+	public List<QnAVO> getQuestionsSearchByTitleOrContent(String keyword){
+		try {
+			return new QnAListDAO(DBCP.getConnection()).getQuestionsSearchByTitle(1, 10, keyword);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }
