@@ -35,4 +35,8 @@ public class QnAListServiceTest {
 	public void 질문글_내용검색() {
 		System.out.println(new QnAListService().getQuestionsSearchByContent("업"));
 	}
+	@Test
+	public void 질문글_제목+내용() {
+		System.out.println(new QnAListService().getQuestions());
+	}
 }
