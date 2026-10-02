@@ -22,7 +22,7 @@ public class QnAListDAO {
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
 			ResultSet rs=pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
 			}
 			rs.close();
