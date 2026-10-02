@@ -27,5 +27,9 @@ public class QnAListServiceTest {
 	public void 질문글_리스트보기() {
 		System.out.println(new QnAListService().getQuestions());
 	}
+	@Test
+	public void 질문글_제목검색() {
+		System.out.println(new QnAListService().getQuestionsSearchByTitle(" "));
+	}
 	
 }
