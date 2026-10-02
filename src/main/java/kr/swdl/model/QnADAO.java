@@ -1,7 +1,10 @@
 package kr.swdl.model;
 
-public class QnADetailDAO {
-	public QnADetailVO getQnAPost(String questionNumber) {
+import java.util.List;
+
+public class QnADAO {
+	
+	public QnAVO getQnAPost(String questionNumber) {
 		return null;
 	}
 	
@@ -15,6 +18,10 @@ public class QnADetailDAO {
 	
 	public boolean deleteQnAPost(String questionNumber) {
 		return false;
+	}
+	
+	public List<AnswerVO> getAnswerPost(String questionNumber){
+		return null;
 	}
 	
 	public boolean addAnswer(String memberNumber, String content) {

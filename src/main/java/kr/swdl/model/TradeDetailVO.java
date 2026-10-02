@@ -11,10 +11,10 @@ public class TradeDetailVO {
 	private int price;
 	private String writeDate;
 	private String viewCount;
-	private List<ReplyDetailVO> reply;
+	private List<ReplyVO> reply;
 	
 	public TradeDetailVO(String tradeNumber, String memberNumber, String nickName, String title, String content,
-			int price, String writeDate, String viewCount, List<ReplyDetailVO> reply) {
+			int price, String writeDate, String viewCount, List<ReplyVO> reply) {
 	setTradeNumber(tradeNumber);
 	setMemberNumber(memberNumber);
 	setNickName(nickName);
@@ -75,10 +75,10 @@ public class TradeDetailVO {
 		this.viewCount = viewCount;
 	}
 	
-	public List<ReplyDetailVO> getReply() {
+	public List<ReplyVO> getReply() {
 		return reply;
 	}
-	public void setReply(List<ReplyDetailVO> reply) {
+	public void setReply(List<ReplyVO> reply) {
 		this.reply = reply;
 	}
 	@Override

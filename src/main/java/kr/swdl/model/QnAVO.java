@@ -2,7 +2,7 @@ package kr.swdl.model;
 
 import java.util.List;
 
-public class QnADetailVO {
+public class QnAVO {
 	private String questionNumber;
 	private String statement;
 	private String memberNumber;
@@ -10,16 +10,16 @@ public class QnADetailVO {
 	private String nickname;
 	private String writeDate;
 	private int viewCount;
-	private String Content;
+	private String content;
 	private int answerCount;
-	private List<AnswerDetailVO> answer;
+	private List<AnswerVO> answer;
 	
 	
-	public QnADetailVO(String qnum, String state, String title, String nick, String date, int viewCnt, int answCnt) {
-		this(qnum, null, title, nick, date, viewCnt, null, answCnt, null);
+	public QnAVO(String questionNumber, String statement, String title, String nickname, String date, int viewCount, int answerCount) {
+		this(questionNumber, null, statement, title, nickname, date, viewCount, null, answerCount, null);
 	}
-	public QnADetailVO(String questionNumber, String memberNumber, String title, String nickname, String writeDate, int viewCount, String content,
-			int answerCount, List<AnswerDetailVO> answer) {
+	public QnAVO(String questionNumber, String memberNumber, String statement, String title, String nickname, String writeDate, int viewCount, String content,
+			int answerCount, List<AnswerVO> answer) {
 		setQuestionNumber(questionNumber);
 		setMemberNumber(memberNumber);
 		setTitle(title);
@@ -29,8 +29,15 @@ public class QnADetailVO {
 		setContent(content);
 		setAnswerCount(answerCount);
 		setAnswer(answer);
+		setStatement(statement);
 	}
 	
+	public String getStatement() {
+		return statement;
+	}
+	public void setStatement(String statement) {
+		this.statement = statement;
+	}
 	public String getQuestionNumber() {
 		return questionNumber;
 	}
@@ -68,10 +75,10 @@ public class QnADetailVO {
 		this.viewCount = viewCount;
 	}
 	public String getContent() {
-		return Content;
+		return content;
 	}
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
 	public int getAnswerCount() {
 		return answerCount;
@@ -79,17 +86,18 @@ public class QnADetailVO {
 	public void setAnswerCount(int answerCount) {
 		this.answerCount = answerCount;
 	}
-	public List<AnswerDetailVO> getAnswer() {
+	public List<AnswerVO> getAnswer() {
 		return answer;
 	}
-	public void setAnswer(List<AnswerDetailVO> answer) {
+	public void setAnswer(List<AnswerVO> answer) {
 		this.answer = answer;
 	}
+	
 	@Override
 	public String toString() {
-		return "QnADetailVO [title=" + title + ", nickname=" + nickname + ", writeDate=" + writeDate
-				+ ", viewCount=" + viewCount + ", Content=" + Content + ", answerCount=" + answerCount + "]";
+		return "QnAVO [questionNumber=" + questionNumber + ", statement=" + statement + ", memberNumber=" + memberNumber
+				+ ", title=" + title + ", nickname=" + nickname + ", writeDate=" + writeDate + ", viewCount="
+				+ viewCount + ", content=" + content + ", answerCount=" + answerCount + ", answer=" + answer + "]";
 	}
-	
 	
 }
