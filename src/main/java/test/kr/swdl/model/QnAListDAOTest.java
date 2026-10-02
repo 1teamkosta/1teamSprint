@@ -37,4 +37,8 @@ public class QnAListDAOTest {
 	public void 제목으로_검색하기() throws SQLException{
 		System.out.println(new QnAListDAO(conn).getQuestionsSearchByTitle(1, 10, "나요"));
 	}
+	@Test
+	public void 내용으로_검색하기() throws SQLException{
+		System.out.println(new QnAListDAO(conn).getQuestionsSearchByContent(1, 10, "업"));
+	}
 }
