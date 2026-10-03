@@ -47,6 +47,10 @@ public interface Query {
 			+ "FROM question q JOIN member m ON q.member_number = m.member_number "
 			+ "WHERE m.nickname LIKE '%' || ? || '%') "
 			+ "WHERE rn between ? AND ?";
-	
+	String MEMBER_LOGIH="SELECT nickname "
+			+ "FROM member "
+			+ "WHERE member_id =?,member_pw =?";
+	String ADD_MEMBER_INFO= "INSERT INTO member(member_number,member_id,member_pw,nickname,phone,email,email_domain,document_number,conpany_name,company_number,business_type,member_name,city,address1,address2) "
+			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 

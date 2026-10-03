@@ -2,7 +2,7 @@ package kr.swdl.model;
 
 public class MemberDAO {
 	
-	public boolean login(String id, String pw){
+	public boolean memberLogin(String id, String pw){
 		return false;
 	}
 	public boolean addMemberInfo(    
