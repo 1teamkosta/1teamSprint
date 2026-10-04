@@ -8,6 +8,16 @@ public interface Query {
 	String SET_QNA_VIEW="INSERT INTO question_view (view_number, member_number, question_number) VALUES ('QV' || seq_question_view.NEXTVAL, ?, ?)";
 	String IS_QNA_VIEW="SELECT COUNT(qv.question_number) FROM question_view qv WHERE qv.member_number = ? AND qv.question_number = ?";
 	String ADD_QNA_VIEW="UPDATE question q SET view_count=view_count+ 1 WHERE q.question_number = ?";
+<<<<<<< Updated upstream
 
 
+=======
+	
+	
+	String VIEW_TRADE_LIST="SELECT trade_number,main_image, title, nickname, price, write_date, view_count FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn FROM trade t JOIN member m ON t.member_number = m.member_number) WHERE rn BETWEEN ? AND ?";
+	String SEARCH_TITLE_TRADE="SELECT trade_number,main_image, title, nickname, price, write_date, view_count FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn FROM trade t JOIN member m ON t.member_number = m.member_number WHERE t.title LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String SEARCH_CONTENT_TRADE="SELECT trade_number,main_image, title, nickname, price, write_date, view_count FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn FROM trade t JOIN member m ON t.member_number = m.member_number WHERE content LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String SEARCH_NICKNAME_TRADE="SELECT trade_number,main_image, title, nickname, price, write_date, view_count FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn FROM trade t JOIN member m ON t.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String SEARCH_TITLE_CONTENT_TRADE="SELECT trade_number,main_image, title, nickname, price, write_date, view_count FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn FROM trade t JOIN member m ON t.member_number = m.member_number WHERE t.title LIKE '%' || ? || '%' OR content LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+>>>>>>> Stashed changes
 }
