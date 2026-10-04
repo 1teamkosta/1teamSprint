@@ -27,7 +27,7 @@ public class TradeListTest {
 	
 	@Test
 	public void 페이지() throws SQLException {
-		System.out.println(new TradeListDAO(conn).getTrades(2, 4)) ;
+		System.out.println(new TradeListDAO(conn).getTrades(1, 2)) ;
 	}
 
 }
