@@ -27,8 +27,7 @@ public class MemberDAO {
 		}		
 		return nickname;
 	}
-	public boolean addMemberInfo(    
-			String memberNumber,
+	public boolean addMemberInfo(
 		    String memberId,
 		    String memberPw,
 		    String nickname,
@@ -45,22 +44,21 @@ public class MemberDAO {
 		    String address2){
 		boolean result=false;
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(Query.MEMBER_LOGIN);
-			pstmt.setString(1, memberNumber);
-			pstmt.setString(2, memberId);
-			pstmt.setString(3, memberPw);
-			pstmt.setString(4, nickname);
-			pstmt.setString(5, phone);
-			pstmt.setString(6, email);
-			pstmt.setString(7, emailDomain);
-			pstmt.setString(8, documentNumber);
-			pstmt.setString(9, companyName);
-			pstmt.setString(10, companyNumber);
-			pstmt.setString(11, businessType);
-			pstmt.setString(12, memberName);
-			pstmt.setString(13, city);
-			pstmt.setString(14, address1);
-			pstmt.setString(15, address2);
+			PreparedStatement pstmt=conn.prepareStatement(Query.ADD_MEMBER_INFO);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
+			pstmt.setString(3, nickname);
+			pstmt.setString(4, phone);
+			pstmt.setString(5, email);
+			pstmt.setString(6, emailDomain);
+			pstmt.setString(7, documentNumber);
+			pstmt.setString(8, companyName);
+			pstmt.setString(9, companyNumber);
+			pstmt.setString(10, businessType);
+			pstmt.setString(11, memberName);
+			pstmt.setString(12, city);
+			pstmt.setString(13, address1);
+			pstmt.setString(14, address2);
 			result=pstmt.executeUpdate()==1;
 			pstmt.close();
 		} catch (SQLException e) {			
