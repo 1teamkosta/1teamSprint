@@ -21,11 +21,11 @@ public class TradeListDAO {
 		
 		try {
 		PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADELIST);
-		ResultSet rs = pstmt.executeQuery();
 		pstmt.setInt(1, start);
 		pstmt.setInt(2, end);
+		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
-//			list.add(new TradeVO(rs.get))
+			list.add(new TradeVO(null, rs.getString("title"), rs.getString("main_image"), rs.getInt("view_count"), rs.getInt("price"), rs.getString("nickname"), rs.getString("write_date")));
 		}
 		rs.close();
 		pstmt.close();

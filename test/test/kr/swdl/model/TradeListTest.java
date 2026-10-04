@@ -1,18 +1,16 @@
 package test.kr.swdl.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import kr.swdl.model.TradeListDAO;
 import kr.swdl.model.DBCP;
 
-class TradeListTest {
+public class TradeListTest {
 	
 	private static Connection conn;
 
@@ -27,9 +25,9 @@ class TradeListTest {
 		System.out.println("단위테스트_사전동작");
 	}
 	
-//	@Test
-//	void test 페이지() {
-//		assertEquals(new TradeListDAO(conn).getTrades(1), 1);
-//	}
+	@Test
+	public void 페이지() throws SQLException {
+		System.out.println(new TradeListDAO(conn).getTrades(2, 4)) ;
+	}
 
 }

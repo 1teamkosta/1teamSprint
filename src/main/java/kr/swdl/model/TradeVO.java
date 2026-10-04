@@ -15,11 +15,11 @@ public class TradeVO {
 	private int replyCount;
 	private List<ReplyVO> reply;
 	
-	public TradeVO(String tradeNumber, int viewCount, String title, String mainImage, int price, String nickname, String writeDate) {
-		this(tradeNumber, null, title, writeDate, nickname, viewCount, mainImage, price, null, 0, null);
+	public TradeVO(String tradeNumber, String title, String mainImage, int viewCount, int price, String nickname, String writeDate) {
+		this(tradeNumber, null, title, writeDate, nickname, mainImage, viewCount, price, null, 0, null);
 	}
-	public TradeVO(String tradeNumber, String memberNumber, String title, String writeDate, String nickName,
-			int viewCount, String mainImage, int price, String content, int replyCount, List<ReplyVO> reply) {
+	public TradeVO(String tradeNumber, String memberNumber, String title, String nickName, String mainImage, String writeDate,
+			int viewCount, int price, String content, int replyCount, List<ReplyVO> reply) {
 		super();
 		setTradeNumber(tradeNumber);
 		setMemberNumber(memberNumber);
