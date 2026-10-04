@@ -49,8 +49,8 @@ public interface Query {
 			+ "WHERE rn between ? AND ?";
 	String MEMBER_LOGIN="SELECT nickname "
 			+ "FROM member "
-			+ "WHERE member_id =?,member_pw =?";
-	String ADD_MEMBER_INFO= "INSERT INTO member(member_number,member_id,member_pw,nickname,phone,email,email_domain,document_number,conpany_name,company_number,business_type,member_name,city,address1,address2) "
-			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "WHERE member_id =? AND member_pw =?";
+	String ADD_MEMBER_INFO= "INSERT INTO member(member_number,member_id,member_pw,nickname,phone,email,email_domain,document_number,company_name,company_number,business_type,member_name,city,address1,address2) "
+			+ "VALUES('M' || seq_question.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 }
 
