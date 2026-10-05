@@ -82,7 +82,7 @@ public class TradeListDAO {
 		List<TradeVO> list = new ArrayList<TradeVO>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE_CONTENT);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, start);
@@ -104,7 +104,7 @@ public class TradeListDAO {
 		List<TradeVO> list = new ArrayList<TradeVO>();
 		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_NICKNAME);
 			pstmt.setString(1, nickname);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);

@@ -26,8 +26,39 @@ public class TradeListTest {
 	}
 	
 	@Test
-	public void 페이지() throws SQLException {
+	public void 거래게시글목록_불러오기() throws SQLException {
 		System.out.println(new TradeListDAO(conn).getTrades(1, 2)) ;
 	}
+	
+	
+	@Test
+	public void 거래게시글목록_못_불러오기() throws SQLException {
+		System.out.println(new TradeListDAO(conn).getTrades(1, 0)) ;
+	}
 
+	@Test
+	public void 제목으로_검색하기() throws SQLException{
+		System.out.println(new TradeListDAO(conn).getTradesSearchByTitle(1, 10, "유통기한"));
+	}
+	
+	@Test
+	public void 내용으로_검색하기() throws SQLException{
+		System.out.println(new TradeListDAO(conn).getTradesSearchByContent(1, 10, "식용유"));
+	}
+	
+	@Test
+	public void 제목_내용으로_검색하기() throws SQLException{
+		System.out.println(new TradeListDAO(conn).getTradesSearchByTitleOrContent(1, 10, "원두", "팝니다"));
+	}
+	
+	@Test
+	public void 작성자로_검색하기() throws SQLException{
+		System.out.println(new TradeListDAO(conn).getTradesSearchByNickname(1, 10, "김영희"));
+	}
+	
+	@Test
+	public void 작성자_못_검색하기() throws SQLException{
+		System.out.println(new TradeListDAO(conn).getTradesSearchByNickname(1, 10, "1"));
+	}
+	
 }
