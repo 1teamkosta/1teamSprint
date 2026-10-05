@@ -3,10 +3,10 @@ package kr.swdl.model;
 public interface Query {
 	public String IS_TRADE_VIEW = "SELECT COUNT(tv.trade_number) FROM trade_view tv WHERE tv.member_number = ? AND tv.trade_number = ?";
 	public String SET_TRADE_VIEW_COUNT = "UPDATE trade t SET view_count += 1 WHERE t.trade_number = ?";
-	public String ADD_TRADE_VIEW = "INSERT INTO trade_view (view_number, member_number, trade_number) VALUES(seq_trade_view.next, ?, ?)";
-	public String GET_TRADE = "SELECT trade_number, title, m.nickname, write_date, view_count, content FROM trade t "
+	public String ADD_TRADE_VIEW = "INSERT INTO trade_view (view_number, member_number, trade_number) VALUES('TV' || seq_trade_view.nextval, ?, ?)";
+	public String GET_TRADE = "SELECT t.member_number, title, m.nickname, write_date, view_count, content, main_image, price FROM trade t "
 			+ "JOIN member m ON t.member_number = m.member_number WHERE trade_number = ?";
-	public String GET_TRADE_REPLY = "SELECT reply_number, m.nickname, write_date, content FROM reply r "
+	public String GET_TRADE_REPLY = "SELECT reply_number, r.member_number, m.nickname, write_date, content FROM reply r "
 			+ "JOIN member m ON r.member_number = m.member_number WHERE trade_number = ?";
 	public String GET_TRADE_REPLY_COUNT = "SELECT COUNT(reply_number) FROM reply WHERE trade_number = ?";
 	public String ADD_TRADE = "INSERT INTO trade(trade_number, main_image, title, price, content, write_date, view_count, member_number) "
@@ -16,5 +16,5 @@ public interface Query {
 	public String ADD_TRADE_REPLY = "INSERT INTO reply(reply_number, content, write_date, trade_number, member_number) "
 			+ "VALUES ('R'|| seq_reply.nextval, ?, sysdate, ?, ?)";
 	public String SET_TRADE_REPLY = "UPDATE reply SET content = ? WHERE reply_number = ? ";
-	public String DELETE_TRADE_REPLY = "DELETE FROM answer WHERE answer_number = ?";
+	public String DELETE_TRADE_REPLY = "DELETE FROM reply WHERE reply_number = ?";
 }
