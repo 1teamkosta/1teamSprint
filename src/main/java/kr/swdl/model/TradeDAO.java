@@ -32,7 +32,7 @@ public class TradeDAO {
 	}
 	
 	//게시글 등록
-	public boolean addTrade(String memberNumber, String mainImage,String title,int price,String content) {
+	public boolean addTrade(String memberNumber, String mainImage, String title, int price, String content) {
 		return false;
 	}
 	
@@ -41,11 +41,11 @@ public class TradeDAO {
 		return false;
 	}
 	//게시글 수정
-	public boolean setTrade(String tradeNumber, String mainImage,String title,int price,String content) {
+	public boolean setTrade(String tradeNumber, String mainImage, String title, int price, String content) {
 		return false;
 	}
 	//댓글 등록
-	public boolean addTradeReply(String replyNumber, String content) {
+	public boolean addTradeReply(String tradeNumber, String memberNumber, String content) {
 		return false;
 	}
 	//댓글 수정
