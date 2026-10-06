@@ -120,7 +120,7 @@ CREATE UNIQUE INDEX PK_TRADE
    ===================================================== */
 
 INSERT INTO MEMBER VALUES (
-    'M'|| seq_question.nextval, 'hong01', '1234', '김철수',
+    'M'|| seq_member.nextval, 'hong01', '1234', '김철수',
     '010-1111-1111', 'hong01', 'naver.com',
     '0001-2344-555555', '더 좋은 컴퍼니', '111-22-33333',
     '요식업', '김철수',
@@ -128,7 +128,7 @@ INSERT INTO MEMBER VALUES (
 );
 
 INSERT INTO MEMBER VALUES (
-    'M'|| seq_question.nextval, 'kim02', '1234', '김영희',
+    'M'|| seq_member.nextval, 'kim02', '1234', '김영희',
     '010-2222-2222', 'kim02', 'gmail.com',
     '0002-2222-333333', '나무야 미안해', '222-33-44444',
     '인쇄업', '김수민',
@@ -136,7 +136,7 @@ INSERT INTO MEMBER VALUES (
 );
 
 INSERT INTO MEMBER VALUES (
-    'M'|| seq_question.nextval, 'lee01', '1234', '이민수',
+    'M'|| seq_member.nextval, 'lee01', '1234', '이민수',
     '010-1111-1111', 'lee01', 'naver.com',
     '0001-1111-222222', '푸른하늘', '111-22-33333',
     '도소매업', '박지훈',
@@ -145,7 +145,7 @@ INSERT INTO MEMBER VALUES (
 
 
 INSERT INTO MEMBER VALUES (
-    'M'|| seq_question.nextval, 'park03', '1234', '박서연',
+    'M'|| seq_member.nextval, 'park03', '1234', '박서연',
     '010-3333-3333', 'park03', 'gmail.com',
     '0003-3333-444444', '행복상사', '333-44-55555',
     '서비스업', '최유진',
@@ -154,7 +154,7 @@ INSERT INTO MEMBER VALUES (
 
 
 INSERT INTO MEMBER VALUES (
-    'M'|| seq_question.nextval, 'choi04', '1234', '최준호',
+    'M'|| seq_member.nextval, 'choi04', '1234', '최준호',
     '010-4444-4444', 'choi04', 'daum.net',
     '0004-4444-555555', '준호기획', '444-55-66666',
     '광고업', '이수진',
