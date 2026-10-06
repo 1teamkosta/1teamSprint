@@ -48,7 +48,7 @@ public class TradeListTest {
 	
 	@Test
 	public void 제목_내용으로_검색하기() throws SQLException{
-		System.out.println(new TradeListDAO(conn).getTradesSearchByTitleOrContent(1, 10, "원두", "팝니다"));
+		System.out.println(new TradeListDAO(conn).getTradesSearchByTitleOrContent(1, 10, "원두"));
 	}
 	
 	@Test
