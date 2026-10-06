@@ -79,7 +79,22 @@ public class QnADAO {
 		}
 		return result;
 }
-	//답변 상태 추가
+	
+	public boolean setQuestionStatementRestore (String questionNumber) {
+		boolean result =false;
+		try {
+			PreparedStatement pstmt= conn.prepareStatement(Query.SET_QUESTION_STATEMENT_RESTORE);
+			pstmt.setString(1, questionNumber);
+			result=pstmt.executeUpdate()==1;
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+}
+	
+	//답변 채택하기
 	public boolean setAnswerStatement (String answerNumber) {
 		boolean result = false;
 		try {
@@ -120,10 +135,10 @@ public class QnADAO {
 		
 			
 			pstmt.setString(1,memberNumber);
-			pstmt.setString(2, questionNumber);
+			pstmt.setString(2,questionNumber);
 			ResultSet rs=pstmt.executeQuery();
 			if (rs.next()) 
-				result = (rs.getInt(1) == 1);
+				result = (rs.getInt(1) > 0);
 			rs.close();
 			pstmt.close();
 			
@@ -151,5 +166,27 @@ public class QnADAO {
 		return result;
 	}
 	
+	public int countSelectState(String questionNumber) {
+		int count= 0;
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(Query.COUNT_SELET_STATE);
+			pstmt.setString(1, questionNumber);
+			ResultSet rs= pstmt.executeQuery();
+			if (rs.next()) {
+                count = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		
+		return count;
+	}
 	
-}
+	}
+	
+	
+
