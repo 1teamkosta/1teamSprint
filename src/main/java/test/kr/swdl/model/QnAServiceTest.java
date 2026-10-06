@@ -24,7 +24,7 @@ public class QnAServiceTest {
 	    conn = DBCP.getConnection();
 	    conn.setAutoCommit(false);
 
-	    service = new QnAService(conn);
+	    service = new QnAService();
 	}
 
 	@After

@@ -104,7 +104,7 @@ public class TradeListDAOTest {
     public void 거래게시판_제목내용검색() {
 
         List<TradeVO> list =
-                dao.getTradesSearchByTitleOrContent(1, 10, "판매", "사용");
+                dao.getTradesSearchByTitleOrContent(1, 10, "판매");
 
         assertNotNull(list);
         assertTrue(list.size() <= 10);
