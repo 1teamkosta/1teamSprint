@@ -72,8 +72,8 @@ public class TradeDAO {
 			
 			try(ResultSet rs = pstmt.executeQuery()) {
 				if(rs.next()) {
-					vo = new TradeVO(tradeNumber, rs.getString("member_number"), rs.getString("title"), rs.getString("write_date"), rs.getString("nickname"), rs.getInt("view_count"),
-							rs.getString("main_image"), rs.getInt("price"), rs.getString("content"), 0, null);
+					vo = new TradeVO(tradeNumber, rs.getString("member_number"),rs.getString("main_image"), rs.getString("title"), rs.getString("nickname"), rs.getString("write_date"), rs.getInt("view_count"),
+							 rs.getInt("price"), rs.getString("content"), 0, null);
 				}
 			}
 		} catch (SQLException e) {

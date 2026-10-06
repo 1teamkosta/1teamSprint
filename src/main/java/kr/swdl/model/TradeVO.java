@@ -18,13 +18,13 @@ public class TradeVO {
 	public TradeVO(String tradeNumber, String mainImage, String title, String nickname, String writeDate, int viewCount, int price) {
 		this(tradeNumber, null, mainImage, title, nickname, writeDate, viewCount, price, null, 0, null);
 	}
-	public TradeVO(String tradeNumber, String memberNumber, String mainImage, String title, String nickName, String writeDate,
+	public TradeVO(String tradeNumber, String memberNumber, String mainImage, String title, String nickname, String writeDate,
 			int viewCount, int price, String content, int replyCount, List<ReplyVO> reply) {
 		setTradeNumber(tradeNumber);
 		setMemberNumber(memberNumber);
 		setTitle(title);
 		setWriteDate(writeDate);
-		setNickName(nickName);
+		setNickName(nickname);
 		setViewCount(viewCount);
 		setPrice(price);
 		setContent(content);
