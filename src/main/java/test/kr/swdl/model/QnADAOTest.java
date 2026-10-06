@@ -14,8 +14,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.swdl.model.AnswerVO;
 import kr.swdl.model.DBCP;
 import kr.swdl.model.QnADAO;
+import kr.swdl.model.QnAVO;
 
 public class QnADAOTest {
 

@@ -11,7 +11,7 @@ import java.util.List;
 public class QnADAO {
 	private Connection conn;
 
-	public QnADAO(Connection conn) throws ClassNotFoundException, SQLException {
+	public QnADAO(Connection conn) {
 		this.conn = conn; 
 	}
 	
