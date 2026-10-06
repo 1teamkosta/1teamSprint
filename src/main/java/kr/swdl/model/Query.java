@@ -2,7 +2,7 @@ package kr.swdl.model;
 
 public interface Query {
 	public String IS_TRADE_VIEW = "SELECT COUNT(tv.trade_number) FROM trade_view tv WHERE tv.member_number = ? AND tv.trade_number = ?";
-	public String SET_TRADE_VIEW_COUNT = "UPDATE trade t SET view_count += 1 WHERE t.trade_number = ?";
+	public String SET_TRADE_VIEW_COUNT = "UPDATE trade t SET view_count = view_count + 1 WHERE t.trade_number = ?";
 	public String ADD_TRADE_VIEW = "INSERT INTO trade_view (view_number, member_number, trade_number) VALUES('TV' || seq_trade_view.nextval, ?, ?)";
 	public String GET_TRADE = "SELECT t.member_number, title, m.nickname, write_date, view_count, content, main_image, price FROM trade t "
 			+ "JOIN member m ON t.member_number = m.member_number WHERE trade_number = ?";
