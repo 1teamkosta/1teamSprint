@@ -5,7 +5,7 @@ import java.util.List;
 public class TradeListDAO {
 	
 	//거래게시판 목록 조회
-	public List<TradeVO> getTrades(int page, int pagesize) {
+	public List<TradeVO> getTrades(int start, int end) {
 		return null;
 	}
 	//거래게시판 제목 검색
@@ -14,12 +14,12 @@ public class TradeListDAO {
 	}
 	
 	//거래게시판 내용 검색
-	public List<TradeVO> getTradesSearchByContent(int start, int end,String content){
+	public List<TradeVO> getTradesSearchByContent(int start, int end, String content){
 		return null;
 	}
 	
 	//거래게시판 제목+내용 검색
-	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end,String title, String content){
+	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end, String title, String content){
 		return null;
 	}
 	
