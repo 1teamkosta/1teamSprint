@@ -1,24 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-			<div class="contentFunction">
-				<input type="file" id="fileInput" >
-				 <select>
-	              <option value="0">기본서체</option>
-	              <option value="1">궁서체</option>
-	              <option value="2">고딕</option>
-	              <option value="3">나눔글꼴</option>
-	            </select>
-	            <select>
-	              <option value="4">10px</option>
-	              <option value="5">11px</option>
-	              <option value="6">12px</option>
-	              <option value="7">13px</option>
-	            </select>
-	            <span class="BIU">
-			    <button class="bold">B</button>
-			    <button class="italic">I</button>
-			    <button class="underline" >U</button>
-			    </span>
-            </div>
-			<textarea class="inputContent" placeholder=" 내용을 입력해 주세요. 어떤 표현이든 거리낌 없이 해도 되는 공간이 아닙니다."></textarea>
-			<button class="submitBtn">등록</button>
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+<div id="editor"></div> <br>
+<button class="submitBtn">등록</button>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+<script>
+const Size = Quill.import('attributors/style/size');
+
+Size.whitelist = ['8px','9px','10px','11px','12px','13px','14px','15px','16px'];
+
+Quill.register(Size, true);
+
+const quill = new Quill('#editor', {
+	  modules: {
+	    toolbar: [
+	      ['image'],
+	      [{ 'font': [] },{ 'size': Size.whitelist }],
+	      ['bold', 'italic', 'underline']
+	      
+	    ],
+	  },
+	  placeholder:'내용을 입력해 주세요. 어떤 표현이든 거리낌 없이 해도 되는 공간이 아닙니다.',
+	  theme: 'snow', // or 'bubble'
+	});
+</script>
