@@ -6,7 +6,23 @@ public class TradeListDAO {
 	
 	//거래게시판 목록 조회
 	public List<TradeVO> getTrades(int start, int end) {
-		return null;
+		List<TradeVO> list = new ArrayList<TradeVO>();
+		
+		try {
+		PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADELIST);
+		pstmt.setInt(1, start);
+		pstmt.setInt(2, end);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			list.add(new TradeVO(rs.getString("trade_number"), rs.getString("main_image"), rs.getString("title"), rs.getString("nickname"), rs.getString("write_date"), rs.getInt("view_count"), rs.getInt("price")));
+		}
+		rs.close();
+		pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		 
+		return list;
 	}
 	//거래게시판 제목 검색
 	public List<TradeVO> getTradesSearchByTitle(int start, int end, String title){
@@ -19,8 +35,25 @@ public class TradeListDAO {
 	}
 	
 	//거래게시판 제목+내용 검색
-	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end, String title, String content){
-		return null;
+	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end, String keyword){
+		List<TradeVO> list = new ArrayList<TradeVO>();
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE_CONTENT);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
+			pstmt.setInt(3, start);
+			pstmt.setInt(4, end);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new TradeVO(rs.getString("trade_number"), rs.getString("main_image"), rs.getString("title"), rs.getString("nickname"), rs.getString("write_date"), rs.getInt("view_count"), rs.getInt("price")));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	//거래게시판 작성자 검색
