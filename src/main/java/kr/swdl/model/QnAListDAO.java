@@ -1,32 +1,111 @@
 package kr.swdl.model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QnAListDAO {
-//	private Connection conn;
-//	
-//	public QuestionListDAO(Connection conn) {
-//		this.conn = conn;
-//	}
+	private Connection conn;
 	
-	public List<QnADAO> getQuestions(int start, int end) {
-		return null;
+	public QnAListDAO(Connection conn) {
+		this.conn = conn;
 	}
 	
-	public List<QnADAO> getQuestionsSearchByTitle(int start, int end, String keyword) {
-		return null;
+	public List<QnAVO> getQuestions(int start, int end) {
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
-	public List<QnADAO> getQuestionSearchByContent(int start, int end, String keyword) {
-		return null;
+	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String keyword) {
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE);
+			pstmt.setString(1, keyword);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public List<QnAVO> getQuestionsSearchByContent(int start, int end, String keyword) {
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_CONTENT);
+			pstmt.setString(1, keyword);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
-	public List<QnADAO> getQuestionSearchByTitleOrContent(int start, int end, String keyword) {
-		return null;
+	public List<QnAVO> getQuestionsSearchByTitleOrContent(int start, int end, String keyword) {
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_TITLE_OR_CONTENT);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
+			pstmt.setInt(3, start);
+			pstmt.setInt(4, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
-	public List<QnADAO> getQuestionSearchByNickname(int start, int end, String keyword) {
-		return null;
+	public List<QnAVO> getQuestionsSearchByNickname(int start, int end, String keyword) {
+		List<QnAVO> list=new ArrayList<QnAVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_QUESTIONS_SEARCH_BY_NICKNAME);
+			pstmt.setString(1, keyword);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new QnAVO(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7)));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
