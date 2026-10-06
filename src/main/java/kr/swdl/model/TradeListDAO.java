@@ -78,13 +78,13 @@ public class TradeListDAO {
 	}
 
 	//거래게시판 제목+내용 검색
-	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end, String title, String content){
+	public List<TradeVO> getTradesSearchByTitleOrContent(int start, int end, String keyword){
 		List<TradeVO> list = new ArrayList<TradeVO>();
-
+		
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE);
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
+			PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADES_SEARCH_TITLE_CONTENT);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
 			pstmt.setInt(3, start);
 			pstmt.setInt(4, end);
 			ResultSet rs = pstmt.executeQuery();
@@ -98,6 +98,7 @@ public class TradeListDAO {
 		}
 		return list;
 	}
+	
 
 	//거래게시판 작성자 검색
 	public List<TradeVO> getTradesSearchByNickname(int start, int end, String nickname){
