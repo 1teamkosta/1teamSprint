@@ -56,6 +56,7 @@ public class TradeListDAO {
 		return list;
 	}
 	
+
 	//거래게시판 작성자 검색
 	public List<TradeVO> getTradesSearchByNickname(int start, int end, String nickname){
 		return null;
