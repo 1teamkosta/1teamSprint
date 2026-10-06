@@ -1,0 +1,27 @@
+# --- Eclipse Metadata ---
+.metadata/
+.settings/
+*.settings/
+.recommenders/
+
+# --- Build Outputs ---
+bin/
+build/
+target/
+*.class
+
+# --- Project Files ---
+.classpath
+*.classpath
+.project
+
+# --- mac ---
+.DS_Store
+*.DS_Store
+.DS_Store
+src/.DS_Store
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/kr/.DS_Store
+src/main/java/kr/swdl/.DS_Store
+.DS_Store

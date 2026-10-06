@@ -1,0 +1,115 @@
+.tableTd {
+	text-align: left;
+}
+
+.inputTitle{
+	border: 1px solid #ccc;
+	margin: 15px auto;
+	width: 100%;
+	height: 25px;
+}
+
+.titleprice {
+  display: flex;
+  gap: 8px; /* 입력 칸 사이의 간격 */
+  width: 100%; /* 필요에 따라 전체 너비 조절 */
+}
+
+.priceTitle {
+	border: 1px solid #ccc;
+  flex: 5; /* 제목 칸의 비율 (더 길게) */
+  height: 25px;
+}
+
+.priceInput {
+	border: 1px solid #ccc;
+  flex: 1; /* 가격 칸의 비율 (더 작게) */
+  height: 25px;
+}
+
+
+.submitBtn {
+    display: block;
+    margin: 0 auto;
+    
+	/* 크기 및 여백 */
+	padding: 5px 10px;
+	font-size: 14px;
+}
+
+#editor {
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#editor .ql-toolbar,
+#editor .ql-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#editor .ql-editor {
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.bodyWarp {
+  width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="8px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before {
+    content: '8px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="9px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="9px"]::before {
+    content: '9px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="10px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before {
+    content: '10px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="11px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="11px"]::before {
+    content: '11px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="12px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before {
+    content: '12px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="13px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="13px"]::before {
+    content: '13px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="14px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"]::before {
+    content: '14px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="15px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="15px"]::before {
+    content: '15px';
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="16px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before {
+    content: '16px';
+}
+
+
