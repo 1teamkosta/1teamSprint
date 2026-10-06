@@ -1,12 +1,23 @@
 package kr.swdl.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TradeListDAO {
 	
+	private Connection conn;
+
+	public TradeListDAO(Connection conn) {
+		this.conn = conn;
+	}
+	
 	//거래게시판 목록 조회
 	public List<TradeVO> getTrades(int start, int end) {
-		List<TradeVO> list = new ArrayList<TradeVO>();
+		List<TradeVO> list = new ArrayList();
 		
 		try {
 		PreparedStatement pstmt = conn.prepareStatement(Query.GET_TRADELIST);
