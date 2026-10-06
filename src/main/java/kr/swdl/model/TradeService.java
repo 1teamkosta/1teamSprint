@@ -42,8 +42,11 @@ public class TradeService {
 		
 		try {
 			TradeDAO dao = new TradeDAO(DBCP.getConnection());
-			
 			vo = dao.getTrade(tradeNumber);
+			
+			if(vo == null)
+				return null;
+			
 			vo.setReply(dao.getTradeReply(tradeNumber));
 			vo.setReplyCount(dao.getTradeReplyCount(tradeNumber));
 		} catch (SQLException e) {
