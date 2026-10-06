@@ -25,23 +25,23 @@ public class QnAListServiceTest {
 	}
 	@Test
 	public void 질문글_리스트보기() {
-		System.out.println(new QnAListService().getQuestions());
+		System.out.println(new QnAListService().getQuestions(1));
 	}
 	@Test
 	public void 질문글_제목검색() {
-		System.out.println(new QnAListService().getQuestionsSearchByTitle("나요"));
+		System.out.println(new QnAListService().getQuestionsSearchByTitle(1,"나요"));
 	}
 	@Test
 	public void 질문글_내용검색() {
-		System.out.println(new QnAListService().getQuestionsSearchByContent("업"));
+		System.out.println(new QnAListService().getQuestionsSearchByContent(1,"업"));
 	}
 	@Test
 	public void 질문글_제목_내용검색() {
-		System.out.println(new QnAListService().getQuestionsSearchByTitleOrContent("업"));
+		System.out.println(new QnAListService().getQuestionsSearchByTitleOrContent(1,"업"));
 	}
 	@Test
 	public void 질문글_닉네임검색() {
-		System.out.println(new QnAListService().getQuestionsSearchByNickname("최준호"));
+		System.out.println(new QnAListService().getQuestionsSearchByNickname(1,"최준호"));
 	}
 	
 }
