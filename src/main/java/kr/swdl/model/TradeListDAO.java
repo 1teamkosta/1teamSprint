@@ -32,7 +32,7 @@ public class TradeListDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		 
 		return list;
 	}
 	//거래게시판 제목 검색
