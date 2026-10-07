@@ -22,7 +22,7 @@
             <div class="boardTitle">정보공유</div>
             <ul>
               <li class="bordCard"><a href="#">장사TIP</a></li>
-              <li class="bordCard"><a href="#">Q&A</a></li>
+              <li class="bordCard"><a href="Controller?cmd=qnaListUI">Q&A</a></li>
               <li class="bordCard"><a href="#">동네소식</a></li>
             </ul>
           </div>
