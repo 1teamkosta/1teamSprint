@@ -22,7 +22,7 @@ public class LoginAction implements Action {
 		
 		session.setAttribute("loginOK", request.getParameter("id"));
 		session.setAttribute("loginName", name);
-		return url;
+		return url;//
 	}
 
 }
