@@ -40,14 +40,14 @@
                 <div class="question-content">
                     ${question.content}
                 </div>
-				<c:if test="${question.memberNumber == sessionScope.memberNumber}">
+				
 	                <div class="question-footer">
 	                    <div class="question-owner-buttons">
-					        <a href="#" class="edit-btn">수정</a>
-					        <a href="#" class="delete-btn">삭제</a>
+					        <a href="${pageContext.request.contextPath}/Controller?cmd=setQnaUI&questionNumber=${question.questionNumber}" class="edit-btn">수정</a>
+					        <a href="${pageContext.request.contextPath}/Controller?cmd=deleteQnaAction&questionNumber=${question.questionNumber}" class="delete-btn ">삭제</a>
 	    				</div>
 	                </div>
-                </c:if>
+                
                 
             </div>
 
@@ -70,45 +70,64 @@
 	                    <div class="answer-write-bottom">
 	                        <span>다른 사장님들에게 도움이 되는 답변을 남겨주세요.</span>
 	                        
-	                        <button type="submit" class="answer-submit"><a href="">답변 등록</a></button>
+	                        <button type="submit" class="answer-submit">답변 등록</button>
 	                       
 	                    </div>
 	                </div>
                 </form>
 
-                <!-- 답변  -->
-                <c:forEach var="answer" items="${answer}">
-	               <div class="answer-item">
-	              		<c:if test="${answer.selectState}">
-	                		<div class="selected-answer-badge">✓ 채택된 답변</div>
-	                	</c:if>
-	                    <div class="answer-user">
-	                        <strong> ${answer.nickname}</strong>
-	                        <span> ${answer.writeDate}</span>
-	                    </div>
-	                    <div class="answer-content">
-	                    	${answer.content}
-	                    </div>
-	                    <div class="answer-footer">
-	                    	<c:if test="${question.memberNumber == sessionScope.memberNumber}">
-	                    	<form action="${pageContext.request.contextPath}/Controller?cmd=adoptAnswerAction" method="post">
-		                    	<input  type="hidden"
-								        name="answerNumber"
-								        value="${answer.answerNumber}">
-								<input  type="hidden"
-								        name="questionNumber"
-								        value="${question.questionNumber}">
-	                    		<button type="submit" class="answer-select-btn">채택</button>
-	                    	</form>
-	                    	</c:if>
-	                        <c:if test="${answer.memberNumber == sessionScope.memberNumber}">
-	                        <div class="answer-owner-buttons">
-					            <a href="#" class="edit-btn">수정</a>
-					            <a href="#" class="delete-btn">삭제</a>
-					        </div>
-					        </c:if>
-	                    </div>
-	                </div>
+				<!-- 답변 목록 반복문 -->
+				<c:forEach var="answer" items="${answer}">
+				    <div class="answer-item" id="answer-item-${answer.answerNumber}">
+				        <c:if test="${answer.selectState}">
+				            <div class="selected-answer-badge">✓ 채택된 답변</div>
+				        </c:if>
+				        
+				        <div class="answer-user">
+				            <strong>${answer.nickname}</strong>
+				            <span>${answer.writeDate}</span>
+				        </div>
+				
+				        <!-- 1. 기본 답변 내용 화면 -->
+				        <div class="answer-content" id="answer-content-${answer.answerNumber}">
+				            ${answer.content}
+				        </div>
+				
+				        <!-- 2. [숨김 상태] 수정용 textarea 폼 -->
+				        <form action="${pageContext.request.contextPath}/Controller?cmd=setAnswerAction" method="post" 
+				              class="answer-edit-form" id="edit-form-${answer.answerNumber}" style="display: none;">
+				            <input type="hidden" name="questionNumber" value="${question.questionNumber}">
+				            <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
+				            
+				            <textarea name="content" class="answer-input-edit">${answer.content}</textarea>
+				            
+				            <div class="edit-form-buttons">
+				                <button type="submit" class="edit-submit-btn">수정완료</button>
+				                <button type="button" class="edit-cancel-btn" onclick="cancelEdit('${answer.answerNumber}')">취소</button>
+				            </div>
+				        </form>
+				
+				        <div class="answer-footer">
+				            <!-- 질문 작성자만 보이는 채택 버튼 -->
+				            <c:if test="${question.memberNumber == sessionScope.memberNumber}">
+				                <form action="${pageContext.request.contextPath}/Controller?cmd=adoptAnswerAction" method="post">
+				                    <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
+				                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
+				                    <button type="submit" class="answer-select-btn">채택</button>
+				                </form>
+				            </c:if>
+				
+				            <!-- 답변 작성자만 보이는 수정/삭제 버튼 -->
+				            
+				                <div class="answer-owner-buttons" id="owner-btns-${answer.answerNumber}">
+				                    <!-- 수정 버튼 클릭 시 JS 함수 호출 -->
+				                    <button type="button" class="edit-btn" onclick="toggleEdit('${answer.answerNumber}')">수정</button>
+				                    <a href="${pageContext.request.contextPath}/Controller?cmd=deleteAnswerAction&questionNumber=${question.questionNumber}&answerNumber=${answer.answerNumber}" 
+				                       class="delete-btn" onclick="return confirm('답변을 삭제하시겠습니까?');">삭제</a>
+				                </div>
+				            <c:if test="${answer.memberNumber == sessionScope.memberNumber}"></c:if>
+				        </div>
+				    </div>
 				</c:forEach>
 				
             </div>
@@ -118,3 +137,19 @@
 
 </body>
 </html>
+
+<script>
+    // 수정 모드로 전환
+    function toggleEdit(answerNumber) {
+        document.getElementById('answer-content-' + answerNumber).style.display = 'none';
+        document.getElementById('edit-form-' + answerNumber).style.display = 'block';
+        document.getElementById('owner-btns-' + answerNumber).style.display = 'none';
+    }
+
+    // 수정 취소 (기존 내용으로 복구)
+    function cancelEdit(answerNumber) {
+        document.getElementById('answer-content-' + answerNumber).style.display = 'block';
+        document.getElementById('edit-form-' + answerNumber).style.display = 'none';
+        document.getElementById('owner-btns-' + answerNumber).style.display = 'block';
+    }
+</script>
