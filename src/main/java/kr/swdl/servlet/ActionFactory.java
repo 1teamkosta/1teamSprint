@@ -10,8 +10,13 @@ public class ActionFactory {
 		
 		switch (cmd) {
 		
-		
+		case "TradeAction":
+			a = new TradeAction();
+			break;
 	
+		case "addTradeReplyAction":
+			a= new AddTradeReplyAction();
+			break;
 			
 		case "":
 		default:
