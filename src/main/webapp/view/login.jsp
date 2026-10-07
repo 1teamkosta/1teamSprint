@@ -34,7 +34,7 @@
             <!-- 버튼 -->
             <div class="login-buttons">
                 <button type="submit" class="login-btn">로그인</button>
-                <button type="button" class="signup-btn" onclick="location.href='signUp.jsp'">회원가입</button>
+                <button type="button" class="signup-btn" onclick="location.href='${pageContext.request.contextPath}/Controller?cmd=signUpAction'">회원가입</button>
             </div>
         </div>
     </form>

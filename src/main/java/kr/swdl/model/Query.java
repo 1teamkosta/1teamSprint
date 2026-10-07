@@ -109,4 +109,6 @@ public interface Query {
 									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String GET_MEMBER_ID_NICKNAME = "select member_id, nickname from member where =? ";
+	String GET_MEMBERS = "select member_number, member_id,member_pw, nickname, phone, email, email_domain,document_number,company_name, company_number,business_type,member_name,city,address1,address2 from member;";
 }

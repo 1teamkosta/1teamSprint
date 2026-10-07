@@ -9,6 +9,9 @@ public class ActionFactory {
 		Action a = null;
 		
 		switch (cmd) {
+		case "signUpAction":
+			a = new signUpAction();
+		
 		case "loginAction":
 			a = new LoginAction();
 			break;
