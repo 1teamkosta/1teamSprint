@@ -13,7 +13,6 @@ public class ActionFactory {
 			a = new LoginAction();
 			break;
 			
-			
 		case "":
 		default:
 			a = new MainUIAction();
