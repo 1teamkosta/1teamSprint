@@ -15,6 +15,9 @@ public class ActionFactory {
 		case "addAnswer":
 			a=new AddAnswerAction();
 			break;
+		case "adoptAnswer":
+			a=new adoptAnswerAction();
+			break;
 		default:
 			a = new MainUIAction();
 			break;
