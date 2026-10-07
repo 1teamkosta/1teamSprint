@@ -89,7 +89,7 @@ public interface Query {
 	String GET_ANSWER="SELECT a.member_number AS member_number,select_state, m.nickname as nickname, write_date, contents,a.answer_number AS answer_number FROM answer a JOIN member m ON a.member_number = m.member_number WHERE question_number = ?";
 	String ADD_ANSWER="INSERT INTO answer( answer_number,contents,write_date,select_state,question_number,member_number) VALUES ('A'|| seq_answer.nextval,?,sysdate, 0,?,?)";
 	String GET_TRADELIST = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-			+ "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+			+ "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 			+ "FROM trade t\r\n"
 			+ "JOIN member m ON t.member_number = m.member_number)\r\n"
 			+ "WHERE rn BETWEEN ? AND ?";
