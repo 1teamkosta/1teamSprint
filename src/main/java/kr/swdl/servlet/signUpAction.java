@@ -33,6 +33,7 @@ public class signUpAction implements Action {
 			request.setAttribute("list", new MemberService().getMembers());
 			url = "view/login.jsp";
 		}
+		
 			
 		return url;
 	}
