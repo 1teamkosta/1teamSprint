@@ -110,5 +110,5 @@ public interface Query {
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
 	String GET_MEMBER_ID_NICKNAME = "select member_id, nickname from member where =? ";
-	String GET_MEMBERS = "select member_number, member_id,member_pw, nickname, phone, email, email_domain,document_number,company_name, company_number,business_type,member_name,city,address1,address2 from member;";
+	String GET_MEMBERS = "select member_id,member_pw, nickname, phone, email, email_domain,document_number,company_name, company_number,business_type,member_name,city,address1,address2 from member";
 }

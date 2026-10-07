@@ -66,7 +66,6 @@ public class MemberService {
 		try {
 			return new MemberDAO(DBCP.getConnection()).getMembers();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

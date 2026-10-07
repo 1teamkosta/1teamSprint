@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style/signUp.css">
 </head>
 <body>
-	<form class="signup-page" action="${pageContext.request.contextPath}/Controller?cmd=signUpAction">
+	<form class="signup-page" action="${pageContext.request.contextPath}/Controller?cmd=signUpAction" method="post">
 		<div class="signup-box">
 			<h1 class="signup-title">회원가입</h1>
 
@@ -44,7 +44,7 @@
 			<div class="signup-row">
 				<label for="nickname" class="signup-label">닉네임</label>
 				<div class="signup-input-area">
-					<input name="nickName" type="text" id="nickname"
+					<input name="nickname" type="text" id="nickname"
 						class="signup-input">
 				</div>
 				<button type="button" class="signup-check-btn">중복확인</button>
@@ -67,7 +67,7 @@
 				<label class="signup-label">이메일</label>
 
 				<div class="email-area">
-					<input name="emailIid" type="text" class="signup-input"> <span>@</span>
+					<input name="emailId" type="text" class="signup-input"> <span>@</span>
 					<input name="emailDomain" type="text" class="signup-input">
 				</div>
 			</div>
