@@ -9,11 +9,12 @@ public class ActionFactory {
 		Action a = null;
 		
 		switch (cmd) {
-		
-		
-	
-			
-		case "":
+		case "qnaUI":
+			a=new QnAUIAction();
+			break;
+		case "addAnswer":
+			a=new AddAnswerAction();
+			break;
 		default:
 			a = new MainUIAction();
 			break;
