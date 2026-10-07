@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
-    <link rel="stylesheet" href="../style/signUp.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/signUp.css">
 </head>
 <body>
 	<form class="signup-page" action="${pageContext.request.contextPath}/Controller?cmd=signUpAction" method="post">
