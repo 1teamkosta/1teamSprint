@@ -12,10 +12,10 @@ public class ActionFactory {
 		case "qnaUI":
 			a=new QnAUIAction();
 			break;
-		case "addAnswer":
+		case "addAnswerAction":
 			a=new AddAnswerAction();
 			break;
-		case "adoptAnswer":
+		case "adoptAnswerAction":
 			a=new adoptAnswerAction();
 			break;
 		default:

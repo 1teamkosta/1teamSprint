@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- 답변 작성 -->
-                <form action="${pageContext.request.contextPath}/Controller?cmd=addAnswer" method="post">
+                <form action="${pageContext.request.contextPath}/Controller?cmd=addAnswerAction" method="post">
 	                <div class="answer-write">
 	                    <input type="hidden"
 				        name="questionNumber"
@@ -69,7 +69,9 @@
 	                        placeholder="질문에 대한 답변을 작성해주세요."></textarea>
 	                    <div class="answer-write-bottom">
 	                        <span>다른 사장님들에게 도움이 되는 답변을 남겨주세요.</span>
-	                        <button type="submit" class="answer-submit">답변 등록</button>
+	                        
+	                        <button type="submit" class="answer-submit"><a href="">답변 등록</a></button>
+	                       
 	                    </div>
 	                </div>
                 </form>
@@ -89,7 +91,15 @@
 	                    </div>
 	                    <div class="answer-footer">
 	                    	<c:if test="${question.memberNumber == sessionScope.memberNumber}">
-	                    		<button type="button" class="answer-select-btn">채택</button>
+	                    	<form action="${pageContext.request.contextPath}/Controller?cmd=adoptAnswerAction" method="post">
+		                    	<input  type="hidden"
+								        name="answerNumber"
+								        value="${answer.answerNumber}">
+								<input  type="hidden"
+								        name="questionNumber"
+								        value="${question.questionNumber}">
+	                    		<button type="submit" class="answer-select-btn">채택</button>
+	                    	</form>
 	                    	</c:if>
 	                        <c:if test="${answer.memberNumber == sessionScope.memberNumber}">
 	                        <div class="answer-owner-buttons">

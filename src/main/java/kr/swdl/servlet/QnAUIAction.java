@@ -18,6 +18,7 @@ public class QnAUIAction implements Action {
 		//String questionNumber = request.getParameter(questionNumber);
 		request.setAttribute("question", new QnAService().getQnA(questionNumber));
 		request.setAttribute("answer", new QnAService().getAnswer(questionNumber));
+		
 		return "view/qna.jsp";
 	}
 }

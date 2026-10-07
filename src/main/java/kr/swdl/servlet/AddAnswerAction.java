@@ -11,11 +11,11 @@ public class AddAnswerAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String memberNumber = (String) request.getSession().getAttribute("memberNumber");
+		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
 		String questionNumber = request.getParameter("questionNumber");
 		String content = request.getParameter("content");
 		
-		memberNumber = "M1";
+		String memberNumber = "M1";
 		
 		new QnAService().addAnswer(memberNumber, questionNumber, content);
 		
