@@ -39,7 +39,7 @@ public class QnAServiceTest {
 
 	@Test
 	public void qna_서비스_조회() {
-		QnAVO vo= service.getQnA("Q1");
+		QnAVO vo= service.getQnA("Q6");
 		System.out.println(vo);
 		assertNotNull(vo);
 	
@@ -67,7 +67,7 @@ public class QnAServiceTest {
 	    
 	    @Test
 	    public void 답변_조회() {
-	    	List<AnswerVO> list = service.getAnswer("Q4");
+	    	List<AnswerVO> list = service.getAnswer("Q6");
 	    	assertNotNull(list);
 	    	
 	    	   System.out.println("테스트 실행됨");
