@@ -8,10 +8,13 @@ public class ActionFactory {
 		Action a=null;
 		//메뉴를 규칙이 없지만 값을 비교
 		switch(cmd) {
-		case "TradingListUI":
+		case "searchAction":
+			a=new SearchAction();
+			break;
+		case "tradeListUI":
 			a=new TradeListUIAction();
 			break;
-		case "":
+	
 		default :
 			a=new MainUIAction();			
 		}		

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
+@WebServlet("/Controller")
 public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) 
@@ -28,5 +28,4 @@ public class FrontController extends HttpServlet {
 		
 	}
 
-    
 }
