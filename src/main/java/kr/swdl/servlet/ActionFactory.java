@@ -9,11 +9,9 @@ public class ActionFactory {
 		Action a = null;
 		
 		switch (cmd) {
-		case "qnaListUI":
-			a = new QnAListUIAction();
+		case "qnaListAction":
+			a = new QnAListAction();
 			break;
-		
-	
 			
 		case "":
 		default:

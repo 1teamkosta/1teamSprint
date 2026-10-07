@@ -33,6 +33,23 @@ public class QnAListDAO {
 		return list;
 	}
 	
+	public int getQuestionCount() {
+		int cnt = 0;
+		
+		try(Statement stmt = conn.createStatement()) {
+			
+			try(ResultSet rs = stmt.executeQuery(Query.GET_QUESTION_COUNT)) {
+				if(rs.next()) {
+					cnt = rs.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
 	public List<QnAVO> getQuestionsSearchByTitle(int start, int end, String keyword) {
 		List<QnAVO> list=new ArrayList<QnAVO>();
 		try {

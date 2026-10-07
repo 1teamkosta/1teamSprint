@@ -10,6 +10,14 @@ public class QnAListService {
 	private int getEnd(int page) {
 		return page*Common.PAGESIZE;
 	}
+	public int getQuestionCount() {
+		try {
+			return new QnAListDAO(DBCP.getConnection()).getQuestionCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 	public List<QnAVO> getQuestions(int page){
 		try {
 			return new QnAListDAO(DBCP.getConnection()).getQuestions(getStart(page), getEnd(page));

@@ -1,8 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <div class="paginationSearchWrap">
 	<div class="pagination">
+		<c:forEach var="i" begin="1" end="${totalPage}">
+			<c:choose>
+            	<c:when test="${i == curPage}">
+                	<strong>${i}</strong>
+            	</c:when>
+            	<c:otherwise>
+	                <a href="#" class="page-link" data-page="${i}">${i}</a>
+    	        </c:otherwise>
+        	</c:choose>
+		</c:forEach>
+	
+		<!--
 		<button class="paginationPrev">&lt;</button>
 		<a href="#">1</a> 
 		<a href="#">2</a> 
@@ -10,6 +24,7 @@
 		<a href="#">4</a>
 		<a href="#">5</a>
 		<button class="paginationPrev">&gt;</button>
+		-->
 	</div>
 
 	<search> <select class="searchSelect">
@@ -25,3 +40,5 @@
 	</div>
 	</search>
 </div>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/pagination.js"></script>

@@ -109,4 +109,5 @@ public interface Query {
 									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String GET_QUESTION_COUNT = "SELECT COUNT(q.question_number) FROM question q";
 }

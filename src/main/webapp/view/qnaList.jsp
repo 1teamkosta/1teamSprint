@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>자유수다</title>
+	<title>Q&A</title>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/common.css">
@@ -21,7 +21,7 @@
         <div class="bodyWarp">
           <div>
             <div class="bodyWrapHader">
-              <h2 class="tilte">공지사항</h2>
+              <h2 class="tilte">Q&A</h2>
               <button class="writeBtn">작성하기</button>
             </div>
 
@@ -49,7 +49,8 @@
             </table>
           </div>
           <%@ include file="../common/pagination.jsp" %>
+          <script type="text/javascript" src="${pageContext.request.contextPath}/js/qnaList.js"></script>
 		</div>
 	</div>
-
 </div>
+</body>
