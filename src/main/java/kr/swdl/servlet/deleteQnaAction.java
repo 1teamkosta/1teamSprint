@@ -7,23 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.QnAService;
 
-public class AddAnswerAction implements Action {
+public class deleteQnaAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
 		String questionNumber = request.getParameter("questionNumber");
-		String content = request.getParameter("content");
-		
-		String memberNumber = "M1";
-		
-		new QnAService().addAnswer(memberNumber, questionNumber, content);
+		new QnAService().deleteQnA(questionNumber);
 		
 		QnAService service = new QnAService();
 		request.setAttribute("question", service.getQnA(questionNumber));
 		request.setAttribute("answer", service.getAnswer(questionNumber));
 		
-		return "view/qna.jsp";
+		return "view/bizMain.jsp"; //qnalist로 넘겨야됨
 	}
 
 }
