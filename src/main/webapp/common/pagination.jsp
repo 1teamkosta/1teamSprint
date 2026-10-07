@@ -15,7 +15,6 @@
     	        </c:otherwise>
         	</c:choose>
 		</c:forEach>
-	
 		<!--
 		<button class="paginationPrev">&lt;</button>
 		<a href="#">1</a> 
@@ -27,7 +26,7 @@
 		-->
 	</div>
 
-	<search> <select class="searchSelect">
+	<search> <select id="searchSelect" class="searchSelect">
 		<option value="title">제목</option>
 		<option value="author">작성자</option>
 		<option value="content">내용</option>
@@ -35,8 +34,8 @@
 	</select>
 
 	<div class="searchBar">
-		<input type="text" class="searchInput" />
-		<button class="searchBtn">검색</button>
+		<input type="text" id="searchInput" class="searchInput" />
+		<button id="searchBtn" class="searchBtn">검색</button>
 	</div>
 	</search>
 </div>

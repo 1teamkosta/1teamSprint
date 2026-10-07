@@ -110,4 +110,8 @@ public interface Query {
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
 	String GET_QUESTION_COUNT = "SELECT COUNT(q.question_number) FROM question q";
+	String GET_QUESTION_COUNT_SEARCH_BY_TITLE = "SELECT COUNT(q.question_number) FROM question q WHERE q.title LIKE '%' || ? ||";
+	String GET_QUESTION_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.content LIKE '%' || ? ||";
+	String GET_QUESTION_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
+	String GET_QUESTION_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(q.question_number) FROM question q JOIN member m ON q.member_number = m.member_number WHERE m.nickname LIKE '%' || ? ||";
 }

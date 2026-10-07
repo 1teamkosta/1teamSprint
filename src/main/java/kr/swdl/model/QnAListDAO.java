@@ -125,4 +125,38 @@ public class QnAListDAO {
 		}
 		return list;
 	}
+
+	public int getQuestionsCountSearchByKeyword(String searchSelect, String keyword) {
+		int cnt = -1;
+		String sql = null;
+		
+		switch(searchSelect) {
+		case "제목":
+			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_TITLE;
+			break;
+		case "작성자":
+			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_NICKNAME;
+			break;
+		case "내용":
+			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_CONTENT;
+			break;
+		case "제목+내용":
+			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_TITLE_OR_CONTENT;
+			break;
+		}
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, keyword);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					cnt = rs.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
 }
