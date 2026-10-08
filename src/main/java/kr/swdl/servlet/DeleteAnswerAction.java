@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.QnAService;
 
-public class deleteAnswerAction implements Action {
+public class DeleteAnswerAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {

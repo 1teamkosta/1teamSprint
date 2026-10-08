@@ -7,16 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.QnAService;
 
-public class setAnswerAction implements Action {
+public class AddQnaAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		String answerNumber = request.getParameter("answerNumber");
+		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
+		String memberNumber = "M1";
+		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		new QnAService().setAnswer(answerNumber, content);
+		new QnAService().addQnA(memberNumber, title, content);
 		
-		String questionNumber = request.getParameter("questionNumber");
 		QnAService service = new QnAService();
+		String questionNumber = request.getParameter("questionNumber");
 		request.setAttribute("question", service.getQnA(questionNumber));
 		request.setAttribute("answer", service.getAnswer(questionNumber));
 		

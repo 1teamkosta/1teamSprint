@@ -13,28 +13,28 @@ public class ActionFactory {
 			a=new QnAUIAction();
 			break;
 		case "addQnaAction":
-			a=new addQnaAction();
+			a=new AddQnaAction();
 			break;
 		case "setQnaUI":
-			a=new setQnaUIAction();
+			a=new SetQnaUIAction();
 			break;
 		case "setQnaAction":
-			a=new setQnaAction();
+			a=new SetQnaAction();
 			break;
 		case "deleteQnaAction":
-			a=new deleteQnaAction();
+			a=new DeleteQnaAction();
 			break;
 		case "addAnswerAction":
 			a=new AddAnswerAction();
 			break;
 		case "setAnswerAction":
-			a=new setAnswerAction();
+			a=new SetAnswerAction();
 			break;
 		case "deleteAnswerAction":
-			a=new deleteAnswerAction();
+			a=new DeleteAnswerAction();
 			break;
 		case "adoptAnswerAction":
-			a=new adoptAnswerAction();
+			a=new AdoptAnswerAction();
 			break;
 		default:
 			a = new MainUIAction();
