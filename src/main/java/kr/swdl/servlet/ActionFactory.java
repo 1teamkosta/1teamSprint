@@ -10,6 +10,20 @@ public class ActionFactory {
 		
 		switch (cmd) {
 		
+		case "TradeAction":
+			a = new TradeAction();
+			break;
+	
+		case "addReplyAction":
+			a = new AddReplyAction();
+			break;
+			
+		case "setReplyAction":
+			a = new SetReplyAction();
+			break;
+			
+		case "deleteReplyAction":
+			a = new DeleteReplyAction();
 		case "bizMainUIAction":
 			a= new bizMainUIAction();
 			break;
