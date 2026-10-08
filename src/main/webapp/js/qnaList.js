@@ -1,7 +1,7 @@
 let onClickPage = function(page) {
 	const urlParams = new URLSearchParams(window.location.search);
-	const searchSelect = urlParams.get("searchSelect") ?? "";
-	const keyword = urlParams.get("keyword") ?? "";
+	const searchSelect = urlParams.get("searchSelect") || "";
+	const keyword = urlParams.get("keyword") || "";
 	let url = "Controller?cmd=qnaListAction&page=" + page;
 	
 	if(keyword.trim() !== "") {
