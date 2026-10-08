@@ -29,7 +29,7 @@ public class LoginAction implements Action {
 			url = "view/bizMain.jsp"; 
 		}else {
 			 session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-			 url = "view/loginResult.jsp"; 
+			 url = "view/login.jsp"; 
 		}
 		request.setAttribute("loginSuccess", loginSuccess);
 		
