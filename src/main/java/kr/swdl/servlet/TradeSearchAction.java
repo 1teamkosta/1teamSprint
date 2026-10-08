@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.TradeListService;
 import kr.swdl.model.TradeVO;
-public class SearchAction implements Action {
+public class TradeSearchAction implements Action {
 	
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {

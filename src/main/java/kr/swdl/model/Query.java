@@ -109,4 +109,13 @@ public interface Query {
 									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String GET_TRADE_COUNT = "SELECT COUNT(t.trade_number) FROM trade t";
+	String GET_TRADE_COUNT_SEARCH_BY_TITLE = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.content LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(t.trade_number) FROM trade t JOIN member m ON t.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%'";
+
+	
+	
+	
 }

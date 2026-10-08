@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,5 +121,57 @@ public class TradeListDAO {
 		}
 		return list;
 	}
+	
+	public int getTradeCount() {
+		int cnt = 0;
+		
+		try(Statement stmt = conn.createStatement()) {
+			
+			try(ResultSet rs = stmt.executeQuery(Query.GET_TRADE_COUNT)) {
+				if(rs.next()) {
+					cnt = rs.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+	
+	public int getTradeCountSearchByKeyword(String searchSelect, String keyword) {
+		int cnt = -1;
+		String sql = null;
+		
+		switch(searchSelect) {
+		case "title":
+			sql = Query.GET_TRADE_COUNT_SEARCH_BY_CONTENT;
+			break;
+		case "author":
+			sql = Query.GET_TRADE_COUNT_SEARCH_BY_NICKNAME;
+			break;
+		case "content":
+			sql = Query.GET_TRADE_COUNT_SEARCH_BY_CONTENT;
+			break;
+		case "titleContent":
+			sql = Query.GET_TRADE_COUNT_SEARCH_BY_TITLE_OR_CONTENT;
+			break;
+		}
+
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, keyword);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					cnt = rs.getInt(1);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return cnt;
+	}
+
 	
 }

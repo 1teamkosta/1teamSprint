@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 
 <!DOCTYPE html>
 <html>
@@ -8,8 +9,9 @@
 	<title>중고거래</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"/>
-	<link rel="stylesheet" href="../style/common.css">
-	<link rel="stylesheet" href="../style/bizTradingDetails.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/bizTradingDetails.css">
+	
 </head>
 <body>
 <div class="wrap">
@@ -23,22 +25,22 @@
             <div class="bodyWrapHader">
               <h3 class="tilte">중고거래</h3>
               <div class="btnright">
-              <button class="writeBtn">수정</button>
-              <button class="writeBtn">삭제</button>
+			<a href="Controller?cmd=setTrade" class="writeBtn">수정</a>
+			<a href="Controller?cmd=deleteTrade" class="writeBtn">삭제</a>
               </div>
             </div>
 
             <div class="th">
-            	<div class="subColor">11</div>
-                <h1>테이블 팝니다~~</h1>
-                <div class="subColor">2026.09.27 임사장 <br> 조회 1615</div>
-                <h1 class="bordergap">5만원</h1>  
+            	<div class="subColor"></div>
+                <h1>${trade.title}</h1>
+                <div class="subColor">2026.09.27 ${trade.nickname} <br> 조회 ${trade.viewCount}</div>
+                <h1 class="bordergap">${trade.price}</h1>  
              </div>
               
               <div class="imageBox">
               <img src="테이블.jpg" alt="테이블">
               </div>
-              <span class="content">식당분위기랑 맞지 않아서 팝니다 <br> 거의 안 썻서용</span>
+              <span class="content">${trade.content}</span>
 
             <div class="commentHeader">
               <h4>댓글 7</h4>

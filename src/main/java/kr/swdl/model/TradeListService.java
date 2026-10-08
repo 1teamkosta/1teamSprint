@@ -67,4 +67,27 @@ public class TradeListService {
 		}
 		return null;
 	}
+	
+	public int getTradeCount() {
+		try {
+			return new TradeListDAO(DBCP.getConnection()).getTradeCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	public int getTradeCountSearchByKeyword(String searchSelect, String keyword) {
+		try {
+			return new TradeListDAO(DBCP.getConnection()).getTradeCountSearchByKeyword(searchSelect, keyword);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	
+	
 }

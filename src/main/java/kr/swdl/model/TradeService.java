@@ -2,6 +2,7 @@ package kr.swdl.model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class TradeService {
 	public boolean addTradeViewCount(String tradeNumber, String memberNumber) {
@@ -223,4 +224,56 @@ public class TradeService {
 
 		return result;
 	}
+	 
+	public List<ReplyVO> getTradeReply(String tradeNumber) {
+
+	    Connection conn = null;
+
+	    try {
+	        conn = DBCP.getConnection();
+
+	        TradeDAO dao = new TradeDAO(conn);
+
+	        return dao.getTradeReply(tradeNumber);
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return null;
+	}
+	/*public List<ReplyVO> getReply(String tradeNumber){
+		boolean result = false;
+		Connection conn = null;
+		try {
+			conn = DBCP.getConnection();
+			conn.setAutoCommit(false); 
+			new TradeDAO(conn).getTradeReply(tradeNumber);
+			conn.commit();
+		} catch (SQLException e) {
+			try { if(/*nn != null) conn.rollback(); }
+			catch (SQLException ex) {ex.printStackTrace();}
+			e.printStackTrace();
+		} finally {
+			try { 
+				if(conn != null) { 
+					conn.setAutoCommit(true);
+					conn.close(); 
+				}
+			}
+			catch (SQLException e) {e.printStackTrace();}
+		}
+
+		
+		return null;
+		
+	}*/
 }

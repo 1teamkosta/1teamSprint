@@ -22,7 +22,7 @@
             <div class="boardTitle">정보공유</div>
             <ul>
               <li class="bordCard"><a href="#">장사TIP</a></li>
-              <li class="bordCard"><a href="#">Q&A</a></li>
+              <li class="bordCard"><a href="Controller?cmd=qnaListAction&page=1">Q&A</a></li>
               <li class="bordCard"><a href="#">동네소식</a></li>
             </ul>
           </div>
@@ -30,7 +30,7 @@
           <div class="bord">
             <div class="boardTitle">중고거래</div>
             <ul>
-              <li class="bordCard"><a href="#">중고거래</a></li>
+              <li class="bordCard"><a href="Controller?cmd=tradeListUI&page=1">중고거래</a></li>
             </ul>
           </div>
 
