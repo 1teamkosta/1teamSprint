@@ -110,8 +110,12 @@ public class QnADAO {
 			pstmt.setString(1, questionNumber);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				list.add(new AnswerVO(rs.getString("memberNumber"), rs.getString("nickname"),
-						rs.getString("write_date"), rs.getString("contents"), rs.getString("answerNumber"),
+				list.add(new AnswerVO(
+						rs.getString("member_number"), 
+						rs.getString("nickname"),
+						rs.getString("write_date"), 
+						rs.getString("contents"),
+						rs.getString("answer_number"),
 						rs.getInt("select_state") == 1));
 			}
 			pstmt.close();

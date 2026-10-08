@@ -133,7 +133,7 @@ public class QnADAOTest {
     
     @Test
     public void 답변_조회() {
-    	List<AnswerVO> list = dao.getAnswer("Q9");
+    	List<AnswerVO> list = dao.getAnswer("Q6");
     	assertNotNull(list);
     	
     	   System.out.println("테스트 실행됨");
