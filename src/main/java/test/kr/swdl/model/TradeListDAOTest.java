@@ -56,7 +56,7 @@ public class TradeListDAOTest {
         for (TradeVO trade : list) {
             assertNotNull(trade.getTradeNumber());
             assertNotNull(trade.getTitle());
-            assertNotNull(trade.getNickName());
+            assertNotNull(trade.getNickname());
             assertNotNull(trade.getWriteDate());
 
             System.out.println(trade);
@@ -130,7 +130,7 @@ public class TradeListDAOTest {
         for (TradeVO trade : list) {
             assertNotNull(trade.getTradeNumber());
             assertNotNull(trade.getTitle());
-            assertNotNull(trade.getNickName());
+            assertNotNull(trade.getNickname());
 
             System.out.println(trade);
         }
@@ -151,7 +151,7 @@ public class TradeListDAOTest {
             System.out.println(
                     "거래번호 : " + trade.getTradeNumber()
                     + ", 제목 : " + trade.getTitle()
-                    + ", 작성자 : " + trade.getNickName()
+                    + ", 작성자 : " + trade.getNickname()
                     + ", 가격 : " + trade.getPrice()
                     + ", 조회수 : " + trade.getViewCount()
             );

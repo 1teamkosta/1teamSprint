@@ -7,7 +7,7 @@ public class TradeVO {
 	private String memberNumber;
 	private String title;
 	private String writeDate;
-	private String nickName;
+	private String nickname;
 	private int viewCount;
 	private String mainImage;
 	private int price;
@@ -24,7 +24,7 @@ public class TradeVO {
 		setMemberNumber(memberNumber);
 		setTitle(title);
 		setWriteDate(writeDate);
-		setNickName(nickname);
+		setNickname(nickname);
 		setViewCount(viewCount);
 		setPrice(price);
 		setContent(content);
@@ -62,11 +62,11 @@ public class TradeVO {
 	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public int getViewCount() {
 		return viewCount;
@@ -102,7 +102,7 @@ public class TradeVO {
 	@Override
 	public String toString() {
 		return "TradeVO [tradeNumber=" + tradeNumber + ", memberNumber=" + memberNumber + ", title=" + title
-				+ ", writeDate=" + writeDate + ", nickName=" + nickName + ", viewCount=" + viewCount + ", mainImage="
+				+ ", writeDate=" + writeDate + ", nickname=" + nickname + ", viewCount=" + viewCount + ", mainImage="
 				+ mainImage + ", price=" + price + ", content=" + content + ", replyCount=" + replyCount + ", reply="
 				+ reply + "]";
 	}
