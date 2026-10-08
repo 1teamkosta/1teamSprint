@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
-<div id="editor"></div> <br>
-<button class="submitBtn">등록</button>
+<div id="editor"> ${fix.content}</div> <br>
 
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+
 
 <script>
 const Size = Quill.import('attributors/style/size');

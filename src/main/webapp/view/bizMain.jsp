@@ -7,8 +7,8 @@
 	<meta charset="UTF-8">
 	<title>메인</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby"/>
-	<link rel="stylesheet" href="../style/common.css">
-	<link rel="stylesheet" href="../style/bizMain.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/common.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/bizMain.css">
 </head>
 <body>
 <div class="wrap">

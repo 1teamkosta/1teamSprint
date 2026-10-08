@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
-	const pageLink = document.querySelectorAll(".pagination .page-link")
+	const pageLink = document.querySelectorAll(".pagination .pagelink");
 	pageLink.forEach(link => {
 		link.addEventListener("click", function() {
 			if(typeof onClickPage === "function")
-				onClickPage(this.getAttribute("data-page"));
+				onClickPage(link.dataset.page);
 		});
 	});
 });

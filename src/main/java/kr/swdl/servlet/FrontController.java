@@ -7,25 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class FrontController
- */
 @WebServlet("/Controller")
 public class FrontController extends HttpServlet {
-	protected void service(HttpServletRequest request, 
-			HttpServletResponse response) 
-					throws ServletException, IOException {
+       
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		// cmd
-		String cmd=request.getParameter("cmd");
-		System.out.println("cmd : "+ cmd);
-		//해당 Action 전달 받아서 실행 TDD
-		Action a=ActionFactory.getAction(cmd);
-		//해당 페이지로 이동
-		String url=a.execute(request);
+		String cmd = request.getParameter("cmd");
+		System.out.println("cmd : " + cmd);
+		Action a = ActionFactory.getAction(cmd);
+		String url = a.execute(request);
+		
 		request.getRequestDispatcher("/"+url).forward(request, response);
-		
-		
 	}
 
 }

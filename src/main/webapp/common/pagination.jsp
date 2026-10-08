@@ -11,7 +11,7 @@
                 	<strong>${i}</strong>
             	</c:when>
             	<c:otherwise>
-	                <a href="#" class="page-link" data-page="${i}">${i}</a>
+	                <a href="#" class="pagelink" data-page="${i}">${i}</a>
     	        </c:otherwise>
         	</c:choose>
 		</c:forEach>
