@@ -7,19 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.swdl.model.TradeListService;
 import kr.swdl.model.TradeService;
-import kr.swdl.model.TradeVO;
 
-public class TradeAction implements Action {
+public class DeleteTradeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 		
-		String tradeNumber = "T5";
-		//String tradeNumber = request.getParameter(tradeNumber);
-		request.getSession().setAttribute("memberNumber", "M5");
-		request.setAttribute("trade", new TradeService().getTrade(tradeNumber));
+		String tradeNumber = request.getParameter("tradeNumber");
 		
-		return "view/bizTradingDetails.jsp";
+		new TradeService().deleteTrade(tradeNumber);
+		
+		request.setAttribute("trade",new TradeListService().getTradeList(1));
+		
+		return "view/bizTrading.jsp";
 	}
+
 }

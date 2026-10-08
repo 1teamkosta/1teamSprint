@@ -26,9 +26,11 @@
               <h3 class="tilte">중고거래</h3>
                 <c:if test="${trade.memberNumber == sessionScope.memberNumber}">
               <div class="btnright">
-              <a href="#" class="writeBtn">수정</a>
-              <a href="#" class="writeBtn">삭제</a>
-              </div>
+    			<a href="#" class="writeBtn">수정</a>
+    			<a href="Controller?cmd=deleteTrade&tradeNumber=${trade.tradeNumber}"
+       			   class="writeBtn deleteBtn"
+       			   onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+			  </div>
               </c:if>
             </div>
 
