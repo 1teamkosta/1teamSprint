@@ -17,7 +17,6 @@ public class AddReplyAction implements Action {
 
         TradeService service = new TradeService();
         
-        request.getSession().setAttribute("memberNumber", "M5");
 		String memberNumber = (String) request.getSession().getAttribute("memberNumber");
         String tradeNumber = request.getParameter("tradeNumber");
         String content = request.getParameter("content");

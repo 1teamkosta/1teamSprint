@@ -14,6 +14,10 @@ public class ActionFactory {
 			a = new TradeAction();
 			break;
 			
+		case "setTradeAction":
+			a= new SetTradeAction();
+			break;
+			
 		case "deleteTradeAction":
 			a = new DeleteTradeAction();
 			break;
@@ -28,6 +32,7 @@ public class ActionFactory {
 			
 		case "deleteReplyAction":
 			a = new DeleteReplyAction();
+			break;
 			
 		case "bizMainUIAction":
 			a= new bizMainUIAction();
