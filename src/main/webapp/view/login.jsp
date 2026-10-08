@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <title>로그인</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/style/login.css">
+    
 
 </head>
 
@@ -20,9 +21,10 @@
             <h1 class="login-title">로그인</h1>
 
             <!-- ID -->
+            <span id="idResult" style="display:none;">  ${loginError}</span>
             <div class="login-row">
                 <label for="userId" class="login-label">ID</label>
-                <input name="id"type="text" id="userId" class="login-input">
+                <input name="userId"type="text" id="userId" class="login-input">
             </div>
 
             <!-- 비밀번호 -->
@@ -38,6 +40,6 @@
             </div>
         </div>
     </form>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 </body>
 </html>

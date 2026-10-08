@@ -37,8 +37,6 @@ public class signUpAction implements Action {
 				" ", " ", " ", " ")) {
 			request.setAttribute("list", new MemberService().getMembers());
 			url = "view/login.jsp";
-		}else {
-			 System.out.println("회원가입 실패");
 		}
 
 		return url;

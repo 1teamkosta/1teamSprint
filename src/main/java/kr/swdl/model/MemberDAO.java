@@ -64,7 +64,7 @@ public class MemberDAO {
 		String result = null;
 		PreparedStatement pstmt;
 		try {
-			pstmt = conn.prepareStatement(Query.GET_MEMBER_ID_NICKNAME);
+			pstmt = conn.prepareStatement(Query.GET_MEMBER_ID);
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) result = rs.getString(1);
@@ -81,10 +81,10 @@ public class MemberDAO {
 		String result = null;
 		PreparedStatement pstmt;
 		try {
-			pstmt = conn.prepareStatement(Query.GET_MEMBER_ID_NICKNAME);
-			pstmt.setString(2, nickname);
+			pstmt = conn.prepareStatement(Query.GET_MEMBER_NICKNAME);
+			pstmt.setString(1, nickname);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) result = rs.getString(2);
+			if(rs.next()) result = rs.getString(1);
 			
 
 		} catch (SQLException e) {
