@@ -14,8 +14,16 @@ public class ActionFactory {
 			a = new TradeAction();
 			break;
 	
-		case "addTradeReplyAction":
-			a= new AddTradeReplyAction();
+		case "addReplyAction":
+			a = new AddReplyAction();
+			break;
+			
+		case "setReplyAction":
+			a = new SetReplyAction();
+			break;
+			
+		case "deleteReplyAction":
+			a = new DeleteReplyAction();
 			break;
 			
 		case "":

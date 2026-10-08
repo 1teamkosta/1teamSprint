@@ -24,7 +24,6 @@
         
             <div class="bodyWrapHader">
               <h3 class="tilte">중고거래</h3>
-                <span>${trade.tradeNumber}</span>
                 <c:if test="${trade.memberNumber == sessionScope.memberNumber}">
               <div class="btnright">
               <a href="#" class="writeBtn">수정</a>
@@ -36,8 +35,8 @@
             <div class="th">
             	<div class="subColor">${trade.tradeNumber}</div>
                 <h1>${trade.title}</h1>
-                <div class="subColor">${trade.writeDate} ${trade.nickname} <br> 조회 ${trade.viewCount}</div>
-                <h1 class="bordergap">${trade.price}</h1> 
+                <div class="subColor">${trade.writeDate} 신중동불주먹<br> 조회 ${trade.viewCount}</div>
+                <h1 class="bordergap">${trade.price}원</h1> 
              </div>
               
               <div class="imageBox">
@@ -49,32 +48,38 @@
               <h4>댓글 ${trade.replyCount}</h4>
             </div>
 
-		<form action="${pageContext.request.contextPath}/controller?cmd=addTradeReplyAction" method="post">
-          <div class="commentWrite">
+		<form action="${pageContext.request.contextPath}/Controller?cmd=addReplyAction" method="post" class="commentWrite">
             <input type="hidden" name="tradeNumber" value="${trade.tradeNumber}">
-            <textarea name="content" placeholder="댓글을 입력해 주세요."></textarea>
+            <textarea name="content" placeholder="댓글을 입력해 주세요." required></textarea>
             <div class="btnGroup">
-              <button type="button" class="submitBtn">등록</button>
+              <button type="submit" class="submitBtn">등록</button>
             </div>
-          </div>
         </form>
         
           <div class="commentList">
-			<c:forEach items="${trade.reply}" var="reply">
-              <div class="commentItem">
+			<c:forEach var="reply" items="${trade.reply}">
+              <div class="commentItem" id="commentItem${reply.replyNumber}">
                 <div class="commentUser">
                 ${reply.nickname}
                 </div>
-                <div class="commentbox">
+                <div class="commentbox" id="commentbox${reply.replyNumber}">
                 <c:out value="${reply.content}" />
                 </div>
+  				<form action="Controller?cmd=setReplyAction" method="post"
+        		id="edit${reply.replyNumber}" style="display:none;">
+        		<input type="hidden" name="tradeNumber" value="${trade.tradeNumber}">
+			    <input type="hidden" name="replyNumber" value="${reply.replyNumber}">
+			    <textarea name="content" required>${reply.content}</textarea>
+			    <button type="submit" class="commentBtn">저장</button>
+			    <button type="button" class="commentBtn" onclick="toggleEdit('${reply.replyNumber}')">취소</button>
+                </form>
                 <div class="subColor">
                 ${reply.writeDate}
+                <%-- 댓글 작성자만 보이는 수정/삭제 버튼 --%>
                 <c:if test="${reply.memberNumber == sessionScope.memberNumber}">
-                <a href="#" type="button" class="commentBtn">수정</a>
-                <form action="controller?cmd=DeleteTradeReplyAction" method="post">
-                <a href="#" type="button" class="commentBtn">삭제</a>
-                </form>
+                <button type="button" class="commentBtn" onclick="toggleEdit('${reply.replyNumber}')">수정</button>
+                <a href="${pageContext.request.contextPath}/Controller?cmd=deleteReplyAction&tradeNumber=${trade.tradeNumber}&replyNumber=${reply.replyNumber}" 
+				class="commentBtn" onclick="return confirm('댓글을 삭제하시겠습니까?');">삭제</a>
                 </c:if>
                 </div>
               </div>
@@ -86,3 +91,20 @@
 </div>
 </body>
 </html>
+
+<script>
+
+    // 수정 모드로 전환
+    function toggleEdit(replyNumber) {
+        document.getElementById('commentbox' + replyNumber).style.display = 'none';
+        document.getElementById('edit' + replyNumber).style.display = 'block';
+        document.getElementById('ownerBtn' + replyNumber).style.display = 'none';
+    }
+
+    // 수정 취소 (기존 내용으로 복구)
+    function cancelEdit(replyNumber) {
+        document.getElementById('commentbox' + replyNumber).style.display = 'block';
+        document.getElementById('edit' + replyNumber).style.display = 'none';
+        document.getElementById('ownerBtn' + replyNumber).style.display = 'block';
+    }
+</script>

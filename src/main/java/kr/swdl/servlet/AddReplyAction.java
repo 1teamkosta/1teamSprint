@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import kr.swdl.model.TradeService;
 
 
-public class AddTradeReplyAction implements Action {
+public class AddReplyAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 
         TradeService service = new TradeService();
         
-        String memberNumber = "M5";
-		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
+        request.getSession().setAttribute("memberNumber", "M5");
+		String memberNumber = (String) request.getSession().getAttribute("memberNumber");
         String tradeNumber = request.getParameter("tradeNumber");
         String content = request.getParameter("content");
         
         service.addTradeReply(tradeNumber, memberNumber, content);
         
 		request.setAttribute("trade", service.getTrade(tradeNumber));
-        
+		
 		return "view/bizTradingDetails.jsp";
 	}
 

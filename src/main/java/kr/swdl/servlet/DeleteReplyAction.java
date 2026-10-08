@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.swdl.model.TradeService;
 
 
-public class TradeReplyAction implements Action {
+public class DeleteReplyAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
@@ -18,9 +18,13 @@ public class TradeReplyAction implements Action {
 		TradeService service = new TradeService();
 		
 		String tradeNumber = request.getParameter("tradeNumber");
-		String memberNumber = request.getParameter("memberNumber");
+		String replyNumber = request.getParameter("replyNumber");
 		
-		return "view/bizTrading.jsp";
+		service.deleteTradeReply(replyNumber);
+		
+		request.setAttribute("trade", service.getTrade(tradeNumber));
+		
+		return "view/bizTradingDetails.jsp";
 	}
 
 }
