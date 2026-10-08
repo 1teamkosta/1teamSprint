@@ -44,7 +44,7 @@
 	                <div class="question-footer">
 	                    <div class="question-owner-buttons">
 					        <a href="${pageContext.request.contextPath}/Controller?cmd=setQnaUI&questionNumber=${question.questionNumber}" class="edit-btn">수정</a>
-					        <a href="${pageContext.request.contextPath}/Controller?cmd=deleteQnaAction&questionNumber=${question.questionNumber}" class="delete-btn ">삭제</a>
+					        <a href="${pageContext.request.contextPath}/Controller?cmd=deleteQnaAction&questionNumber=${question.questionNumber}" class="delete-btn" onclick="return confirm('정말 이 질문을 삭제하시겠습니까?');">삭제</a>
 	    				</div>
 	                </div>
                 
@@ -60,13 +60,10 @@
                 <!-- 답변 작성 -->
                 <form action="${pageContext.request.contextPath}/Controller?cmd=addAnswerAction" method="post">
 	                <div class="answer-write">
-	                    <input type="hidden"
-				        name="questionNumber"
-				        value="${question.questionNumber}">
+	                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
 	                    <textarea
-	                        class="answer-input"
-	                        name="content"
-	                        placeholder="질문에 대한 답변을 작성해주세요."></textarea>
+	                        class="answer-input" name="content" placeholder="질문에 대한 답변을 작성해주세요.">
+	                    </textarea>
 	                    <div class="answer-write-bottom">
 	                        <span>다른 사장님들에게 도움이 되는 답변을 남겨주세요.</span>
 	                        
@@ -141,15 +138,15 @@
 <script>
     // 수정 모드로 전환
     function toggleEdit(answerNumber) {
-        document.getElementById('answer-content-' + answerNumber).style.display = 'none';
-        document.getElementById('edit-form-' + answerNumber).style.display = 'block';
-        document.getElementById('owner-btns-' + answerNumber).style.display = 'none';
+        document.getElementById('answer-content-' + answerNumber).style.display = 'none'; //기존 답변 읽기 전용으로 숨기기
+        document.getElementById('edit-form-' + answerNumber).style.display = 'block'; //수정 폼 화면 표시
+        document.getElementById('owner-btns-' + answerNumber).style.display = 'none'; //수정 삭제 버튼 숨기기
     }
 
     // 수정 취소 (기존 내용으로 복구)
     function cancelEdit(answerNumber) {
-        document.getElementById('answer-content-' + answerNumber).style.display = 'block';
-        document.getElementById('edit-form-' + answerNumber).style.display = 'none';
-        document.getElementById('owner-btns-' + answerNumber).style.display = 'block';
+        document.getElementById('answer-content-' + answerNumber).style.display = 'block'; //답변 읽기 전용 표시
+        document.getElementById('edit-form-' + answerNumber).style.display = 'none'; //수정 폼 화면 숨기기
+        document.getElementById('owner-btns-' + answerNumber).style.display = 'block'; //수정 삭제 버튼 표시
     }
 </script>

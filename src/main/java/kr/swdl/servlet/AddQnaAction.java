@@ -17,10 +17,6 @@ public class AddQnaAction implements Action {
 		String content = request.getParameter("content");
 		new QnAService().addQnA(memberNumber, title, content);
 		
-		QnAService service = new QnAService();
-		String questionNumber = request.getParameter("questionNumber");
-		request.setAttribute("question", service.getQnA(questionNumber));
-		request.setAttribute("answer", service.getAnswer(questionNumber));
 		
 		return "view/qna.jsp";
 	}
