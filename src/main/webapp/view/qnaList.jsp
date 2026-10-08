@@ -49,8 +49,10 @@
             </table>
           </div>
           <%@ include file="../common/pagination.jsp" %>
-          <script type="text/javascript" src="${pageContext.request.contextPath}/js/qnaList.js"></script>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/qnaList.js"></script>
+
 </body>

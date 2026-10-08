@@ -17,11 +17,11 @@ public class QnAListAction implements Action {
 		QnAListService service = new QnAListService();
 		int questionCnt = 0;
 		int curPage = Integer.parseInt(request.getParameter("page"));
-		String searchSelect = request.getParameter("searchSelect").trim();
-		String keyword = request.getParameter("keyword").trim();
+		String searchSelect = request.getParameter("searchSelect");
+		String keyword = request.getParameter("keyword");
 		List<QnAVO> list = null;
 		
-		if(keyword == null || keyword.isEmpty()) {
+		if(keyword == null || keyword.trim().isEmpty()) {
 			searchSelect = "";
 			questionCnt = service.getQuestionCount();
 		}
@@ -30,16 +30,16 @@ public class QnAListAction implements Action {
 		}
 		
 		switch(searchSelect) {
-		case "제목":
+		case "title":
 			list = service.getQuestionsSearchByTitle(curPage, keyword);
 			break;
-		case "작성자":
+		case "author":
 			list = service.getQuestionsSearchByNickname(curPage, keyword);
 			break;
-		case "내용":
+		case "content":
 			list = service.getQuestionsSearchByContent(curPage, keyword);
 			break;
-		case "제목+내용":
+		case "titleContent":
 			list = service.getQuestionsSearchByTitleOrContent(curPage, keyword);
 			break;
 		case "":

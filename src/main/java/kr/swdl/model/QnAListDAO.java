@@ -131,16 +131,16 @@ public class QnAListDAO {
 		String sql = null;
 		
 		switch(searchSelect) {
-		case "제목":
+		case "title":
 			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_TITLE;
 			break;
-		case "작성자":
+		case "author":
 			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_NICKNAME;
 			break;
-		case "내용":
+		case "content":
 			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_CONTENT;
 			break;
-		case "제목+내용":
+		case "titleContent":
 			sql = Query.GET_QUESTION_COUNT_SEARCH_BY_TITLE_OR_CONTENT;
 			break;
 		}
