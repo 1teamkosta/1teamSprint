@@ -57,11 +57,11 @@ function getTitleContentData() {
 function addQna() {
 	const data = getTitleContentData();
 	
-    location.href = "${pageContext.request.contextPath}/Controller?cmd=addQnaAction&title=" + encodeURIComponent(data.title) + "&content=" + encodeURIComponent(data.content);
+    location.href = "Controller?cmd=addQnaAction&title=" + encodeURIComponent(data.title) + "&content=" + encodeURIComponent(data.content);
 }
 function setQna() {
 	const data = getTitleContentData();
 	
-	location.href = "${pageContext.request.contextPath}/Controller?cmd=setQnaAction&questionNumber=${fix.questionNumber}&title=" + encodeURIComponent(data.title) + "&content=" + encodeURIComponent(data.content);
+	location.href = "Controller?cmd=setQnaAction&questionNumber=${fix.questionNumber}&title=" + encodeURIComponent(data.title) + "&content=" + encodeURIComponent(data.content);
 }
 </script>

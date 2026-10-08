@@ -16,10 +16,9 @@ public class AdoptAnswerAction implements Action {
 		
 		new QnAService().adoptAnswer(answerNumber, questionNumber);
 		
-	    request.setAttribute("question",new QnAService().getQnA(questionNumber));
-		request.setAttribute("answer", new QnAService().getAnswer(questionNumber));
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+questionNumber);
 		
-		return "view/qna.jsp";
+		return "view/redirect.jsp";
 	}
 
 }

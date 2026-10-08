@@ -106,13 +106,13 @@
 				
 				        <div class="answer-footer">
 				            <!-- 질문 작성자만 보이는 채택 버튼 -->
-				            <c:if test="${question.memberNumber == sessionScope.memberNumber}">
+				            
 				                <form action="${pageContext.request.contextPath}/Controller?cmd=adoptAnswerAction" method="post">
 				                    <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
 				                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
 				                    <button type="submit" class="answer-select-btn">채택</button>
 				                </form>
-				            </c:if>
+				            <c:if test="${question.memberNumber == sessionScope.memberNumber}"></c:if>
 				
 				            <!-- 답변 작성자만 보이는 수정/삭제 버튼 -->
 				            
