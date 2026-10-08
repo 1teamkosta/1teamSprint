@@ -71,7 +71,7 @@
 			    <input type="hidden" name="replyNumber" value="${reply.replyNumber}">
 			    <textarea name="content" required>${reply.content}</textarea>
 			    <button type="submit" class="commentBtn">저장</button>
-			    <button type="button" class="commentBtn" onclick="toggleEdit('${reply.replyNumber}')">취소</button>
+			    <button type="button" class="commentBtn" onclick="cancelEdit('${reply.replyNumber}')">취소</button>
                 </form>
                 <div class="subColor">
                 ${reply.writeDate}
@@ -98,13 +98,11 @@
     function toggleEdit(replyNumber) {
         document.getElementById('commentbox' + replyNumber).style.display = 'none';
         document.getElementById('edit' + replyNumber).style.display = 'block';
-        document.getElementById('ownerBtn' + replyNumber).style.display = 'none';
     }
 
     // 수정 취소 (기존 내용으로 복구)
     function cancelEdit(replyNumber) {
         document.getElementById('commentbox' + replyNumber).style.display = 'block';
         document.getElementById('edit' + replyNumber).style.display = 'none';
-        document.getElementById('ownerBtn' + replyNumber).style.display = 'block';
     }
 </script>
