@@ -109,6 +109,9 @@ public interface Query {
 									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String GET_MEMBER_ID = "select member_id from member where member_id=? ";
+	String GET_MEMBER_NICKNAME = "select  nickname from member where nickname=? ";
+	String GET_MEMBERS = "select member_id,member_pw, nickname, phone, email, email_domain,document_number,company_name, company_number,business_type,member_name,city,address1,address2 from member";
 	String GET_QUESTION_COUNT = "SELECT COUNT(q.question_number) FROM question q";
 	String GET_QUESTION_COUNT_SEARCH_BY_TITLE = "SELECT COUNT(q.question_number) FROM question q WHERE q.title LIKE '%' || ? || '%'";
 	String GET_QUESTION_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.content LIKE '%' || ? || '%'";

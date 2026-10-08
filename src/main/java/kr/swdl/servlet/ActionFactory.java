@@ -9,6 +9,33 @@ public class ActionFactory {
 		Action a = null;
 		
 		switch (cmd) {
+		
+		case "bizMainUIAction":
+			a= new bizMainUIAction();
+			break;
+			
+		case "idCheck":
+			a = new IdCheckAction();
+			break;
+			
+		case "nicknameCheck":
+			a = new NicknameCheckAction();
+			break;
+			
+		
+		case "signUpAction":
+			a = new signUpAction();
+			break;
+		
+		case "loginUIAction":
+			a = new LoginUIAction();
+			break;
+			
+		case "loginAction":
+			a = new LoginAction();
+			break;
+			
+		case "":
 		case "qnaUI":
 			a=new QnAUIAction();
 			break;
