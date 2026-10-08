@@ -12,6 +12,9 @@ public class ActionFactory {
 		case "qnaUI":
 			a=new QnAUIAction();
 			break;
+		case "addQnaUI":
+			a=new AddQnaUIAction();
+			break;
 		case "addQnaAction":
 			a=new AddQnaAction();
 			break;

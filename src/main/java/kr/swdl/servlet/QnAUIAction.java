@@ -18,7 +18,7 @@ public class QnAUIAction implements Action {
 		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
 		QnAService service = new QnAService();
 		String memberNumber = "M1";
-		String questionNumber = "Q8";
+		String questionNumber = "Q9";
 		
 		service.addViewCount(memberNumber, questionNumber);
 		
