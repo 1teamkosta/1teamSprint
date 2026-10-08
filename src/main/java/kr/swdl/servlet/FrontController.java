@@ -7,18 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class FrontController
- */
 @WebServlet("/Controller")
 public class FrontController extends HttpServlet {
-	
+       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String cmd = request.getParameter("cmd");
+		System.out.println("cmd : " + cmd);
 		Action a = ActionFactory.getAction(cmd);
 		String url = a.execute(request);
-		request.getRequestDispatcher("/" + url).forward(request, response);
+		
+		request.getRequestDispatcher("/"+url).forward(request, response);
 	}
 
 }

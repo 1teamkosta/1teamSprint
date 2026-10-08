@@ -1,6 +1,10 @@
 package kr.swdl.model;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MemberService {
 	public String memberLogin(String id, String pw) {
@@ -33,4 +37,39 @@ public class MemberService {
 		}
 		return false;
 	}
+	
+	public boolean isNicknameCheck(String nickname) {
+		boolean result = false;
+		try {
+			String check = new MemberDAO(DBCP.getConnection()).isNicknameCheck(nickname);
+			if (check != null) result = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	
+	public boolean isIdCheck(String id) {
+		boolean result = false;
+		try {
+			String check =new MemberDAO(DBCP.getConnection()).isIdCheck(id);
+			if (check != null) result = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+	
+	public List<MemberVO> getMembers() {
+		try {
+			return new MemberDAO(DBCP.getConnection()).getMembers();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 }
