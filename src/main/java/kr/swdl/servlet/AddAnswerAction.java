@@ -19,11 +19,9 @@ public class AddAnswerAction implements Action {
 		
 		new QnAService().addAnswer(memberNumber, questionNumber, content);
 		
-		QnAService service = new QnAService();
-		request.setAttribute("question", service.getQnA(questionNumber));
-		request.setAttribute("answer", service.getAnswer(questionNumber));
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+questionNumber);
 		
-		return "view/qna.jsp";
+		return "view/redirect.jsp";
 	}
 
 }

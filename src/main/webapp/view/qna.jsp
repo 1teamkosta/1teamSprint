@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby"/>
  	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/style/qna.css">
+    <script src="${pageContext.request.contextPath}/js/qna.js" defer></script>
 </head>
 
 <body>
@@ -43,8 +44,8 @@
 				
 	                <div class="question-footer">
 	                    <div class="question-owner-buttons">
-					        <a href="${pageContext.request.contextPath}/Controller?cmd=setQnaUI&questionNumber=${question.questionNumber}" class="edit-btn">수정</a>
-					        <a href="${pageContext.request.contextPath}/Controller?cmd=deleteQnaAction&questionNumber=${question.questionNumber}" class="delete-btn" onclick="return confirm('정말 이 질문을 삭제하시겠습니까?');">삭제</a>
+					        <a href="#" id="set-qna-btn" data-question-number="${question.questionNumber}" class="edit-btn">수정</a>
+					        <a href="#" id="del-qna-btn" class="delete-btn">삭제</a>
 	    				</div>
 	                </div>
                 
@@ -58,17 +59,13 @@
                 </div>
 
                 <!-- 답변 작성 -->
-                <form action="${pageContext.request.contextPath}/Controller?cmd=addAnswerAction" method="post">
+                <form action="Controller?cmd=addAnswerAction" method="post">
 	                <div class="answer-write">
 	                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
-	                    <textarea
-	                        class="answer-input" name="content" placeholder="질문에 대한 답변을 작성해주세요.">
-	                    </textarea>
+	                    <textarea class="answer-input" name="content" placeholder="질문에 대한 답변을 작성해주세요."></textarea>
 	                    <div class="answer-write-bottom">
 	                        <span>다른 사장님들에게 도움이 되는 답변을 남겨주세요.</span>
-	                        
 	                        <button type="submit" class="answer-submit">답변 등록</button>
-	                       
 	                    </div>
 	                </div>
                 </form>
@@ -91,8 +88,8 @@
 				        </div>
 				
 				        <!-- 2. [숨김 상태] 수정용 textarea 폼 -->
-				        <form action="${pageContext.request.contextPath}/Controller?cmd=setAnswerAction" method="post" 
-				              class="answer-edit-form" id="edit-form-${answer.answerNumber}" style="display: none;">
+				        <form action="Controller?cmd=setAnswerAction" method="post" 
+				              class="answer-edit-form" id="edit-form-${answer.answerNumber}">
 				            <input type="hidden" name="questionNumber" value="${question.questionNumber}">
 				            <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
 				            
@@ -100,14 +97,14 @@
 				            
 				            <div class="edit-form-buttons">
 				                <button type="submit" class="edit-submit-btn">수정완료</button>
-				                <button type="button" class="edit-cancel-btn" onclick="cancelEdit('${answer.answerNumber}')">취소</button>
+				                <button type="button" class="edit-cancel-btn" id="cencel-btn" data-answer-number="${answer.answerNumber}">취소</button>
 				            </div>
 				        </form>
 				
 				        <div class="answer-footer">
 				            <!-- 질문 작성자만 보이는 채택 버튼 -->
 				            
-				                <form action="${pageContext.request.contextPath}/Controller?cmd=adoptAnswerAction" method="post">
+				                <form action="Controller?cmd=adoptAnswerAction" method="post">
 				                    <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
 				                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
 				                    <button type="submit" class="answer-select-btn">채택</button>
@@ -118,9 +115,8 @@
 				            
 				                <div class="answer-owner-buttons" id="owner-btns-${answer.answerNumber}">
 				                    <!-- 수정 버튼 클릭 시 JS 함수 호출 -->
-				                    <button type="button" class="edit-btn" onclick="toggleEdit('${answer.answerNumber}')">수정</button>
-				                    <a href="${pageContext.request.contextPath}/Controller?cmd=deleteAnswerAction&questionNumber=${question.questionNumber}&answerNumber=${answer.answerNumber}" 
-				                       class="delete-btn" onclick="return confirm('답변을 삭제하시겠습니까?');">삭제</a>
+				                    <button type="button" class="edit-btn">수정</button>
+				                    <a href="#" class="delete-btn">삭제</a>
 				                </div>
 				            <c:if test="${answer.memberNumber == sessionScope.memberNumber}"></c:if>
 				        </div>
@@ -134,19 +130,3 @@
 
 </body>
 </html>
-
-<script>
-    // 수정 모드로 전환
-    function toggleEdit(answerNumber) {
-        document.getElementById('answer-content-' + answerNumber).style.display = 'none'; //기존 답변 읽기 전용으로 숨기기
-        document.getElementById('edit-form-' + answerNumber).style.display = 'block'; //수정 폼 화면 표시
-        document.getElementById('owner-btns-' + answerNumber).style.display = 'none'; //수정 삭제 버튼 숨기기
-    }
-
-    // 수정 취소 (기존 내용으로 복구)
-    function cancelEdit(answerNumber) {
-        document.getElementById('answer-content-' + answerNumber).style.display = 'block'; //답변 읽기 전용 표시
-        document.getElementById('edit-form-' + answerNumber).style.display = 'none'; //수정 폼 화면 숨기기
-        document.getElementById('owner-btns-' + answerNumber).style.display = 'block'; //수정 삭제 버튼 표시
-    }
-</script>
