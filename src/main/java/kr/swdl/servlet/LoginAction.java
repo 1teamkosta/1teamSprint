@@ -16,9 +16,11 @@ public class LoginAction implements Action {
 		
 	    String userId = request.getParameter("userId");
 	    String password = request.getParameter("password");
+	   
 		
 		String url = "";
 		String name = new MemberService().memberLogin(userId, password);
+		String memberNumber = new MemberService().getMemberNumber(userId);
 		 
 		 boolean loginSuccess = (name != null);
 		 HttpSession session = request.getSession(true);
@@ -26,6 +28,7 @@ public class LoginAction implements Action {
 			
 			session.setAttribute("loginOK", userId);
 			session.setAttribute("loginName", name);
+			session.setAttribute("memberNumber", memberNumber);//추가 
 			url = "view/bizMain.jsp"; 
 		}else {
 			 session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");

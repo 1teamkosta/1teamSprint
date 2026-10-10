@@ -72,7 +72,7 @@ public class TradeDAOTest {
 	
 	@Test
 	public void 거래게시글_작성() {
-		assertTrue(new TradeDAO(conn).addTrade("M1", "mainImage.jpng", "소품용 폼폼푸린 인형 팝니다", 50000, ",'가게에서 소품으로 썼던 인형 중고로 팝니다. 상태좋습니다."));
+		assertTrue(new TradeDAO(conn).addTrade("M1", "mainImage.jpng", 50000, "소품용 폼폼푸린 인형 팝니다", ",'가게에서 소품으로 썼던 인형 중고로 팝니다. 상태좋습니다."));
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class TradeDAOTest {
 	
 	@Test
 	public void 거래게시글_수정() {
-		assertTrue(new TradeDAO(conn).setTrade("T1", "mainImage.jpng", "소품용 인형 팝니다", 20000, ",'가게에서 소품으로 썼던 인형 중고로 팝니다."));
+		assertTrue(new TradeDAO(conn).setTrade("T1", "mainImage.jpng", 20000, "소품용 인형 팝니다", ",'가게에서 소품으로 썼던 인형 중고로 팝니다."));
 	}
 	
 	@Test

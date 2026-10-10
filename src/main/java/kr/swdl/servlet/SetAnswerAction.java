@@ -17,10 +17,9 @@ public class SetAnswerAction implements Action {
 		
 		String questionNumber = request.getParameter("questionNumber");
 		QnAService service = new QnAService();
-		request.setAttribute("question", service.getQnA(questionNumber));
-		request.setAttribute("answer", service.getAnswer(questionNumber));
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+ questionNumber);
 		
-		return "view/qna.jsp";
+		return "view/redirect.jsp";
 	}
 
 }

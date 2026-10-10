@@ -37,7 +37,7 @@ public class TradeServiceTest {
 	
 	@Test
 	public void 거래게시글_작성하기() {
-		assertTrue(service.addTrade("M3", "mainImageURL", "JunitTestTitle", 2000, "JunitaddTradeContent"));
+		assertTrue(service.addTrade("M3", "mainImageURL", 2000, "JunitTestTitle", "JunitaddTradeContent"));
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class TradeServiceTest {
 	
 	@Test
 	public void 거래게시글_수정하기() {
-		assertTrue(service.setTrade("T3", "updateURL", "updateTitle", 999999, "updateContent"));
+		assertTrue(service.setTrade("T3", "updateURL", 999999, "updateTitle", "updateContent"));
 	}
 	
 	@Test

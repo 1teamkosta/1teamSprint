@@ -47,8 +47,8 @@ public class QnAServiceTest {
 	
 	 @Test
 	    public void qna_추가() {
-	    	boolean result = service.addQnA("M1", "QnA 추가 테스트", "QnA 테스트 테스트 내용글");
-	    	assertTrue(result);
+	    	String result = service.addQnA("M1", "QnA 추가 테스트", "QnA 테스트 테스트 내용글");
+	    	assertNull(result);
 	    }
 	    
 	    @Test

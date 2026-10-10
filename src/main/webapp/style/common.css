@@ -163,3 +163,7 @@ search {
   width: 50px;
 }
 
+.bodyWarp {
+    width: 100%;           /* 부모 요소(content) 내부를 full로 채움 */
+    box-sizing: border-box; /* 패딩/테두리가 너비 계산에 포함되도록 설정 */
+}
