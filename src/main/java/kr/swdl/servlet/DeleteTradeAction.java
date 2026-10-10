@@ -1,27 +1,24 @@
 package kr.swdl.servlet;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import kr.swdl.model.TradeListService;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 import kr.swdl.model.TradeService;
 
-public class DeleteTradeAction implements Action {
+public class deleteTradeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		
+		TradeService service = new TradeService();
+
 		String tradeNumber = request.getParameter("tradeNumber");
-		
-		new TradeService().deleteTrade(tradeNumber);
-		
-		request.setAttribute("trade",new TradeListService().getTradeList(1));
-		
-		return "view/bizTrading.jsp";
-	}
+
+
+
+		boolean result = service.deleteTrade(tradeNumber);
+
+		return "Controller?cmd=tradeListUI&page=1";}
 
 }
