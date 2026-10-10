@@ -25,16 +25,12 @@ public class ActionFactory {
 			a = new ViewQnAUIAction();
 			break;
 
-		case "setTrade":
+		case "setTradeUI":
 			a= new SetTradeActionUI();
 			break;
         		
 		case "qnaListAction":
 			a = new QnAListAction();
-			break;
-		
-		case "TradeAction":
-			a = new TradeAction();
 			break;
 			
 		case "setTradeAction":

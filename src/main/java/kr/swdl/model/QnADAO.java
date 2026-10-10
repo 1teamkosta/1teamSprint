@@ -58,7 +58,7 @@ public class QnADAO {
 		String questionNumber = null;
 		String[] keyColumn = {"question_number"};
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.ADD_QNA, keyColumn );
+			PreparedStatement pstmt = conn.prepareStatement(Query.ADD_QNA, keyColumn);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setString(3, memberNumber);
@@ -71,7 +71,6 @@ public class QnADAO {
 	        }
 			
 			pstmt.close();
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

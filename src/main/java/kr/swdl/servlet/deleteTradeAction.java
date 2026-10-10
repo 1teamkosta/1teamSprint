@@ -16,7 +16,9 @@ public class deleteTradeAction implements Action {
 		String tradeNumber = request.getParameter("tradeNumber");
 
 		boolean result = service.deleteTrade(tradeNumber);
-
-		return "Controller?cmd=tradeListUI&page=1";}
-
+		
+		request.setAttribute("url", "Controller?cmd=tradeListUI&page=1");
+		
+		return "view/redirect.jsp";
+		}
 }

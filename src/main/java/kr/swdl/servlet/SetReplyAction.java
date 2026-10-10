@@ -25,9 +25,8 @@ public class SetReplyAction implements Action {
 
         service.setTradeReply(replyNumber, content);
         
-        request.setAttribute("trade", service.getTrade(tradeNumber));
-        
-		return "view/bizTradingDetails.jsp";
+        request.setAttribute("url", "Controller?cmd=viewTrade&tradeNumber=" + tradeNumber);
+		return "view/redirect.jsp";
 	}
 
 }

@@ -120,7 +120,7 @@ public interface Query {
 	String GET_TRADE_COUNT = "SELECT COUNT(t.trade_number) FROM trade t";
 	String GET_TRADE_COUNT_SEARCH_BY_TITLE = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%'";
 	String GET_TRADE_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.content LIKE '%' || ? || '%'";
-	String GET_TRADE_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%' OR t.content LIKE '%' || ? || '%'";
 	String GET_TRADE_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(t.trade_number) FROM trade t JOIN member m ON t.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%'";
 	String GET_MEMBER_ID = "select member_id from member where member_id=? ";
 	String GET_MEMBER_NICKNAME = "select  nickname from member where nickname=? ";
