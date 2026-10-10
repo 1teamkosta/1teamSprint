@@ -41,7 +41,7 @@
              </div>
               
               <div class="imageBox">
-              <img src="테이블.jpg" alt="테이블">
+              <img src="${pageContext.request.contextPath}/img/${trade.mainImage}" alt="테이블" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div class="content">${trade.content}</div>
 

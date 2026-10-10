@@ -44,6 +44,17 @@ public class ActionFactory {
 		case "TradeAction":
 			a = new TradeAction();
 			break;
+<<<<<<< Updated upstream
+=======
+			
+		case "setTradeAction":
+			a= new SetTradeAction();
+			break;
+			
+		case "deleteTrade":
+			a = new DeleteTradeAction();
+			break;
+>>>>>>> Stashed changes
         
 		case "addReplyAction":
 			a = new AddReplyAction();

@@ -94,7 +94,8 @@ public class TradeService {
 			conn.setAutoCommit(false); 
 
 			new TradeDAO(conn).deleteTrade(tradeNumber);
-
+			result = true;
+			
 			conn.commit();
 		} catch (SQLException e) {
 			try { if(conn != null) conn.rollback(); }
