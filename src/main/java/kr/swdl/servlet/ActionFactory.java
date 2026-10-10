@@ -9,6 +9,9 @@ public class ActionFactory {
 		Action a = null;
 		
 		switch (cmd) {
+		case "qnaListAction":
+			a = new QnAListAction();
+			break;
 		
 		case "TradeAction":
 			a = new TradeAction();

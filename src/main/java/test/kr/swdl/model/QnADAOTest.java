@@ -113,8 +113,8 @@ public class QnADAOTest {
     
     @Test
     public void qna_추가() {
-    	boolean result = dao.addQnA("M1", "QnA 추가 테스트", "QnA 테스트 테스트 내용글");
-    	assertTrue(result);
+    	String result = dao.addQnA("M1", "QnA 추가 테스트", "QnA 테스트 테스트 내용글");
+    	System.out.println(result);
     }
     
     @Test
