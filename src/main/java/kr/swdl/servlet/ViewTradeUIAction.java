@@ -30,6 +30,7 @@ public class ViewTradeUIAction implements Action {
         System.out.println("전달받은 tradeNumber: " + tradeNumber);
 
 		TradeService service = new TradeService();
+		service.addTradeViewCount(tradeNumber, memberNumber);
 		TradeVO trade = service.getTrade(tradeNumber);
 		request.setAttribute("trade", trade);
 
