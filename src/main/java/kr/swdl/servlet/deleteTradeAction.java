@@ -15,8 +15,6 @@ public class DeleteTradeAction implements Action {
 
 		String tradeNumber = request.getParameter("tradeNumber");
 
-
-
 		boolean result = service.deleteTrade(tradeNumber);
 
 		return "Controller?cmd=tradeListUI&page=1";}
