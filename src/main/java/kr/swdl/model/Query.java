@@ -36,7 +36,7 @@ public interface Query {
 			+ "(SELECT COUNT(answer_number) "
 			+ "FROM answer "
 			+ "WHERE question_number = q.question_number) as answerCount, "
-			+ "ROW_NUMBER() OVER (ORDER BY question_number DESC) AS rn "
+			+ "ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(question_number,2)) DESC)AS rn "
 			+ "FROM question q "
 			+ "JOIN member m ON q.member_number = m.member_number) "
 			+ "WHERE rn between ? AND ?";
