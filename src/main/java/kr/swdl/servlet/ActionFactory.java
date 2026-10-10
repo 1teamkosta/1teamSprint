@@ -32,10 +32,6 @@ public class ActionFactory {
 		case "qnaListAction":
 			a = new QnAListAction();
 			break;
-		
-		case "TradeAction":
-			a = new TradeAction();
-			break;
 			
 		case "setTradeAction":
 			a= new SetTradeAction();
