@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 
@@ -26,17 +27,17 @@
               <h3 class="tilte">중고거래</h3>
                 <c:if test="${trade.memberNumber == sessionScope.memberNumber}">
               <div class="btnright">
-              <a href="#" class="writeBtn">수정</a>
-              <a href="#" class="writeBtn">삭제</a>
+              <a href="Controller?cmd=setTrade&tradeNumber=${trade.tradeNumber}" class="writeBtn">수정</a>
+			<a href="Controller?cmd=deleteTrade&tradeNumber=${trade.tradeNumber}" class="writeBtn">삭제</a>
               </div>
               </c:if>
             </div>
 
             <div class="th">
-            	<div class="subColor">${trade.tradeNumber}</div>
+            	<div class="subColor"></div>
                 <h1>${trade.title}</h1>
-                <div class="subColor">${trade.writeDate} 신중동불주먹<br> 조회 ${trade.viewCount}</div>
-                <h1 class="bordergap">${trade.price}원</h1> 
+                <div class="subColor">${trade.writeDate} ${trade.nickname} <br> 조회 ${trade.viewCount}</div>
+                <h1 class="bordergap">${trade.price}원</h1>  
              </div>
               
               <div class="imageBox">

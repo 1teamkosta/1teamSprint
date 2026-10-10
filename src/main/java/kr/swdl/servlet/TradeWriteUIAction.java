@@ -5,11 +5,12 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
-public class bizMainUIAction implements Action {
-
+public class TradeWriteUIAction implements Action {
+//대표이미지, 글쓰기 라이브러리(api)
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		return "view/bizMain.jsp";
+		// TODO Auto-generated method stub
+		return "view/tradeWrite.jsp";
 	}
 
 }

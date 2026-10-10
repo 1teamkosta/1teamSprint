@@ -79,7 +79,7 @@ public interface Query {
 			+ "WHERE rn between ? AND ?";
 	String MEMBER_LOGIN="SELECT nickname "
 			+ "FROM member "
-			+ "WHERE member_id =? AND member_pw =?";
+			+ "WHERE member_id =? AND member_pw =?";//memberNumber추가 
 	String ADD_MEMBER_INFO= "INSERT INTO member(member_number,member_id,member_pw,nickname,phone,email,email_domain,document_number,company_name,company_number,business_type,member_name,city,address1,address2) "
 			+ "VALUES('M' || seq_question.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	String GET_QNA="SELECT q.question_number, q.member_number, q.statement, q.title, m.nickname AS nickname, q.write_date, q.view_count, q.content, (SELECT COUNT(a.answer_number) FROM answer a WHERE a.question_number = q.question_number) AS answer_count FROM question q JOIN member m ON q.member_number = m.member_number WHERE q.question_number = ?";
@@ -89,26 +89,31 @@ public interface Query {
 	String GET_ANSWER="SELECT a.member_number AS member_number,select_state, m.nickname as nickname, write_date, contents,a.answer_number AS answer_number FROM answer a JOIN member m ON a.member_number = m.member_number WHERE question_number = ?";
 	String ADD_ANSWER="INSERT INTO answer( answer_number,contents,write_date,select_state,question_number,member_number) VALUES ('A'|| seq_answer.nextval,?,sysdate, 0,?,?)";
 	String GET_TRADELIST = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-			+ "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+			+ "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 			+ "FROM trade t\r\n"
 			+ "JOIN member m ON t.member_number = m.member_number)\r\n"
 			+ "WHERE rn BETWEEN ? AND ?";
 	String GET_TRADES_SEARCH_TITLE = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-								   + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+								   + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 								   + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 								   + "WHERE t.title LIKE '%' || ? || '%') WHERE rn between ? AND ?";
 	String GET_TRADES_SEARCH_CONTENT = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-									 + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+									 + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 									 + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									 + "WHERE content LIKE '%' || ? || '%') WHERE rn between ? AND ?";
 	String GET_TRADES_SEARCH_TITLE_CONTENT = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-										   + "FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+										   + "FROM (SELECT trade_number,main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 										   + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n" 
 										   + "WHERE t.title LIKE '%' || ? || '%' OR content LIKE '%' || ? || '%') WHERE rn between ? AND ?";
 	String GET_TRADES_SEARCH_NICKNAME = "SELECT trade_number, main_image, title, nickname, write_date, view_count, price\r\n"
-									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY trade_number DESC) AS rn\r\n"
+									  + "FROM (SELECT trade_number, main_image, title, m.nickname, price, write_date, view_count, ROW_NUMBER() OVER (ORDER BY TO_NUMBER(SUBSTR(trade_number, 2)) DESC) AS rn\r\n"
 									  + "FROM trade t JOIN member m ON t.member_number = m.member_number\r\n"
 									  + "WHERE m.nickname LIKE '%' || ? || '%') WHERE rn between ? AND ?";
+	String GET_TRADE_COUNT = "SELECT COUNT(t.trade_number) FROM trade t";
+	String GET_TRADE_COUNT_SEARCH_BY_TITLE = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.content LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(t.trade_number) FROM trade t WHERE t.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
+	String GET_TRADE_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(t.trade_number) FROM trade t JOIN member m ON t.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%'";
 	String GET_MEMBER_ID = "select member_id from member where member_id=? ";
 	String GET_MEMBER_NICKNAME = "select  nickname from member where nickname=? ";
 	String GET_MEMBERS = "select member_id,member_pw, nickname, phone, email, email_domain,document_number,company_name, company_number,business_type,member_name,city,address1,address2 from member";
@@ -117,4 +122,7 @@ public interface Query {
 	String GET_QUESTION_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.content LIKE '%' || ? || '%'";
 	String GET_QUESTION_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
 	String GET_QUESTION_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(q.question_number) FROM question q JOIN member m ON q.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%'";
+    String GET_MEMBERNUMBER = "SELECT member_number FROM member WHERE member_id = ?"; //추가  
+
+
 }

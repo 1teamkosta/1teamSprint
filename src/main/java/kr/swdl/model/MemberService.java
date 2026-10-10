@@ -70,6 +70,17 @@ public class MemberService {
 		}
 		return null;
 	}
+//추가  
+	public String getMemberNumber(String userId) {
+	    String memberNumber = null;
+	    try {
+	        MemberDAO dao = new MemberDAO(DBCP.getConnection());
+	        memberNumber = dao.getMemberNumber(userId);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return memberNumber;
+	}
 	
 	
 }
