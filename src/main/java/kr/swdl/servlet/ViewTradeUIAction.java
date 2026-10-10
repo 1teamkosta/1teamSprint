@@ -24,7 +24,6 @@ public class ViewTradeUIAction implements Action {
         if (userId == null) {
             return "view/login.jsp"; 
         }
-       
 		
 		String tradeNumber = request.getParameter("tradeNumber");
         System.out.println("전달받은 tradeNumber: " + tradeNumber);
@@ -33,10 +32,6 @@ public class ViewTradeUIAction implements Action {
 		service.addTradeViewCount(tradeNumber, memberNumber);
 		TradeVO trade = service.getTrade(tradeNumber);
 		request.setAttribute("trade", trade);
-
-
-
-
 
 		return "view/bizTradingDetails.jsp";
 	}
