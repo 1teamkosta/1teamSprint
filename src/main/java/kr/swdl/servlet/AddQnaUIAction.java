@@ -9,7 +9,7 @@ public class AddQnaUIAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		return "view/QnAWrite.jsp";
+		return "view/qnaWrite.jsp";
 	}
 
 }

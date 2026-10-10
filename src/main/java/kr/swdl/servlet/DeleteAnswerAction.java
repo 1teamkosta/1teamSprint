@@ -15,11 +15,9 @@ public class DeleteAnswerAction implements Action {
 		String questionNumber = request.getParameter("questionNumber");
 		new QnAService().deleteAnswer(answerNumber, questionNumber);
 		
-		QnAService service = new QnAService();
-		request.setAttribute("question", service.getQnA(questionNumber));
-		request.setAttribute("answer", service.getAnswer(questionNumber));
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+questionNumber);
 		
-		return "view/qna.jsp";
+		return "view/redirect.jsp";
 	}
 
 }

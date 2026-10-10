@@ -15,10 +15,12 @@ public class AddQnaAction implements Action {
 		String memberNumber = "M1";
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		new QnAService().addQnA(memberNumber, title, content);
 		
+		String questionNumber = new QnAService().addQnA(memberNumber, title, content);
 		
-		return "view/qna.jsp";
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+questionNumber);
+		
+		return "view/redirect.jsp";
 	}
 
 }

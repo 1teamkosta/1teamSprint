@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,20 +54,30 @@ public class QnADAO {
 
 	    return result;
 	}
-	public boolean addQnA(String memberNumber, String title, String content) {
-		boolean result = false;
+	public String addQnA(String memberNumber, String title, String content) {
+		String questionNumber = null;
+		String[] keyColumn = {"question_number"};
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(Query.ADD_QNA);
+			PreparedStatement pstmt = conn.prepareStatement(Query.ADD_QNA, keyColumn );
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setString(3, memberNumber);
-			result = pstmt.executeUpdate() == 1;
+			pstmt.executeUpdate();
+			
+			try (ResultSet rs = pstmt.getGeneratedKeys()) {
+	            if (rs.next()) {
+	            	questionNumber = rs.getString(1);
+	            }
+	        }
+			
 			pstmt.close();
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return result;
+		return questionNumber;
 	}
 
 	public boolean setQnA(String questionNumber, String title, String content) { // title, content 추가...

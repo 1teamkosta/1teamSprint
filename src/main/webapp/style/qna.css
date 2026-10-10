@@ -196,3 +196,45 @@
     font-size: 12px;
     font-weight: bold;
 }
+.answer-edit-form{
+	display: none;
+}
+.bodyWarp {
+    width: 100%;           /* 부모 요소(content) 내부를 full로 채움 */
+    box-sizing: border-box; /* 패딩/테두리가 너비 계산에 포함되도록 설정 */
+}
+/* 1. 부모 컨테이너를 Flex로 설정하여 자식 요소들을 수직 중앙 정렬 */
+.answer-owner-buttons {
+    display: inline-flex;
+    align-items: center;  /* 수직 중앙 정렬 */
+    gap: 8px;            /* 수정, 삭제 버튼 사이 간격 */
+}
+
+/* 2. 버튼과 링크 태그의 기본 스타일 및 높낮이 차이 초기화 */
+.answer-owner-buttons .edit-btn,
+.answer-owner-buttons .delete-btn {
+    /* 기본 브라우저 스타일 제거 */
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    
+    /* 폰트 및 텍스트 설정 */
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1;      /* 라인 높이를 1로 고정하여 위치 어긋남 방지 */
+    color: #777;
+    text-decoration: none;
+    cursor: pointer;
+    
+    /* 요소 자체 수직 정렬 기준 맞춤 */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* 호버 효과 */
+.answer-owner-buttons .edit-btn:hover,
+.answer-owner-buttons .delete-btn:hover {
+    color: #222;
+    text-decoration: underline;
+}
