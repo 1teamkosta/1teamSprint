@@ -24,6 +24,9 @@ public class AddTradeAction implements Action {
         if (userId == null) {
             return "view/login.jsp"; 
         }
+        
+		
+		
 		
 		TradeService service = new TradeService();
 		
@@ -42,12 +45,10 @@ public class AddTradeAction implements Action {
 		} catch (NumberFormatException e) {
 		    return null;
 		}
-		
-		String tradeNum = service.addTrade(mainImage, title, price, content, memberNumber);
-		
-		request.setAttribute("url", "Controller?cmd=viewTrade&tradeNumber=" + tradeNum);
-		
-		return "view/redirect.jsp";
+
+		boolean result = service.addTrade(mainImage, title, price, content, memberNumber);
+
+		return "Controller?cmd=tradeListUI&page=1";
 	}
 
 }

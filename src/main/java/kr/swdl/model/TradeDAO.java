@@ -123,27 +123,22 @@ public class TradeDAO {
 	}
 	
 	//게시글 등록
-	public String addTrade(String mainImage, String title, int price, String content, String memberNumber) {
-		String tradeNum = null;
-		String[] keyColumn = {"trade_number"};
+	public boolean addTrade(String mainImage, String title, int price, String content, String memberNumber) {
+		boolean result = false;
 		
-		try(PreparedStatement pstmt = conn.prepareStatement(Query.ADD_TRADE, keyColumn)) {
+		try(PreparedStatement pstmt = conn.prepareStatement(Query.ADD_TRADE)) {
 			pstmt.setString(1, mainImage);
 			pstmt.setString(2, title);
 			pstmt.setInt(3, price);
 			pstmt.setString(4, content);
 			pstmt.setString(5, memberNumber);
 			
-			try (ResultSet rs = pstmt.getGeneratedKeys()) {
-	            if (rs.next()) {
-	            	tradeNum = rs.getString(1);
-	            }
-	        }
+			result = pstmt.executeUpdate() == 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return tradeNum;
+		return result;
 	}
 	
 	//게시글 삭제

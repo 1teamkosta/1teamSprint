@@ -9,7 +9,7 @@
 	<div class="logo">아프리카 사장이다</div>
 	<div class="header-right">
 		<div class="name">
-			<spqn class="data-name">${loginName}</spqn>
+			<spqn class="data-name">임사장</spqn>
 			<span>사장님</span>
 		</div>
 		

@@ -23,10 +23,10 @@ public class AddReplyAction implements Action {
         String content = request.getParameter("content");
         
         service.addTradeReply(tradeNumber, memberNumber, content);
-
-        request.setAttribute("url", "Controller?cmd=viewTrade&tradeNumber=" + tradeNumber);
+        
+		request.setAttribute("trade", service.getTrade(tradeNumber));
 		
-        return "view/redirect.jsp";	
+		return "view/bizTradingDetails.jsp";
 	}
 
 }
