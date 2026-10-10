@@ -123,7 +123,7 @@ public class TradeDAO {
 	}
 	
 	//게시글 등록
-	public boolean addTrade(String memberNumber, String mainImage, String title, int price, String content) {
+	public boolean addTrade(String mainImage, String title, int price, String content, String memberNumber) {
 		boolean result = false;
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(Query.ADD_TRADE)) {
@@ -156,7 +156,7 @@ public class TradeDAO {
 	}
 	
 	//게시글 수정
-	public boolean setTrade(String tradeNumber, String mainImage, String title, int price, String content) {
+	public boolean setTrade(String mainImage, String title, int price, String content, String tradeNumber) {
 		boolean result = false;
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(Query.SET_TRADE)) {

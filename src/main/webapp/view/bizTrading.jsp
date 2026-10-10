@@ -25,7 +25,7 @@
 				<div>
 					<div class="bodyWrapHader">
 						<h2 cslass="tilte">중고 거래</h2>
-						<a href="Controller?cmd=tradeWrite" class="writeBtn"><button>작성하기</button></a>
+						<a href="Controller?cmd=tradeWriteUIAction" class="writeBtn"><button>작성하기</button></a>
 					</div>
 
 					<div class="product-grid">

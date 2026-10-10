@@ -57,7 +57,7 @@ public class TradeService {
 		return vo;
 	}
 	
-	public boolean addTrade(String memberNumber, String mainImage, String title, int price, String content) {
+	public boolean addTrade(String mainImage, String title, int price, String content, String memberNumber) {
 		boolean result = false;
 		Connection conn = null;
 
@@ -65,8 +65,8 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).addTrade(memberNumber, mainImage, title, price, content);
-
+			new TradeDAO(conn).addTrade(mainImage, title, price, content ,memberNumber);
+			result = true;//추가
 			conn.commit();
 		} catch (SQLException e) {
 			try { if(conn != null) conn.rollback(); }
@@ -113,7 +113,7 @@ public class TradeService {
 		return result;
 	}
 	
-	public boolean setTrade(String tradeNumber, String mainImage, String title, int price, String content) {
+	public boolean setTrade(String mainImage, String title, int price, String content, String tradeNumber) {
 		boolean result = false;
 		Connection conn = null;
 
@@ -121,7 +121,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).setTrade(tradeNumber, mainImage, title, price, content);
+			new TradeDAO(conn).setTrade(mainImage, title, price, content,tradeNumber);
 
 			conn.commit();
 		} catch (SQLException e) {

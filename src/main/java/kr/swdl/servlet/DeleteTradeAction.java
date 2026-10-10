@@ -4,13 +4,21 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-//거래글삭제+댓글삭제+조회수(DAO에서 count?)
-public class DeleteTradeAction implements Action {
+
+import kr.swdl.model.TradeService;
+
+public class deleteTradeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		TradeService service = new TradeService();
+
+		String tradeNumber = request.getParameter("tradeNumber");
+
+
+
+		boolean result = service.deleteTrade(tradeNumber);
+
+		return "Controller?cmd=tradeListUI&page=1";}
 
 }

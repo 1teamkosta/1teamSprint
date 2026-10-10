@@ -4,9 +4,8 @@
 
 <div id="editor"> ${fix.content}</div> <br>
 
+
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-
-
 
 <script>
 const Size = Quill.import('attributors/style/size');

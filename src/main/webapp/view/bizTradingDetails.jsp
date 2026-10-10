@@ -27,8 +27,8 @@
               <h3 class="tilte">중고거래</h3>
                 <c:if test="${trade.memberNumber == sessionScope.memberNumber}">
               <div class="btnright">
-			<a href="Controller?cmd=setTrade" class="writeBtn">수정</a>
-			<a href="Controller?cmd=deleteTrade" class="writeBtn">삭제</a>
+              <a href="Controller?cmd=setTrade&tradeNumber=${trade.tradeNumber}" class="writeBtn">수정</a>
+			<a href="Controller?cmd=deleteTrade&tradeNumber=${trade.tradeNumber}" class="writeBtn">삭제</a>
               </div>
               </c:if>
             </div>
@@ -36,8 +36,8 @@
             <div class="th">
             	<div class="subColor"></div>
                 <h1>${trade.title}</h1>
-                <div class="subColor">2026.09.27 ${trade.nickname} <br> 조회 ${trade.viewCount}</div>
-                <h1 class="bordergap">${trade.price}</h1>  
+                <div class="subColor">${trade.writeDate} ${trade.nickname} <br> 조회 ${trade.viewCount}</div>
+                <h1 class="bordergap">${trade.price}원</h1>  
              </div>
               
               <div class="imageBox">

@@ -79,7 +79,7 @@ public interface Query {
 			+ "WHERE rn between ? AND ?";
 	String MEMBER_LOGIN="SELECT nickname "
 			+ "FROM member "
-			+ "WHERE member_id =? AND member_pw =?";
+			+ "WHERE member_id =? AND member_pw =?";//memberNumber추가 
 	String ADD_MEMBER_INFO= "INSERT INTO member(member_number,member_id,member_pw,nickname,phone,email,email_domain,document_number,company_name,company_number,business_type,member_name,city,address1,address2) "
 			+ "VALUES('M' || seq_question.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	String GET_QNA="SELECT q.question_number, q.member_number, q.statement, q.title, m.nickname AS nickname, q.write_date, q.view_count, q.content, (SELECT COUNT(a.answer_number) FROM answer a WHERE a.question_number = q.question_number) AS answer_count FROM question q JOIN member m ON q.member_number = m.member_number WHERE q.question_number = ?";
@@ -122,4 +122,7 @@ public interface Query {
 	String GET_QUESTION_COUNT_SEARCH_BY_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.content LIKE '%' || ? || '%'";
 	String GET_QUESTION_COUNT_SEARCH_BY_TITLE_OR_CONTENT = "SELECT COUNT(q.question_number) FROM question q WHERE q.title LIKE '%' || ? || '%' OR q.content LIKE '%' || ? || '%'";
 	String GET_QUESTION_COUNT_SEARCH_BY_NICKNAME = "SELECT COUNT(q.question_number) FROM question q JOIN member m ON q.member_number = m.member_number WHERE m.nickname LIKE '%' || ? || '%'";
+    String GET_MEMBERNUMBER = "SELECT member_number FROM member WHERE member_id = ?"; //추가  
+
+
 }

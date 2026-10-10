@@ -107,4 +107,20 @@ public class MemberDAO {
 		
 		
 	}
+	
+	public String getMemberNumber(String userId) {
+	    String memberNumber = null;
+	    
+	    try (PreparedStatement pstmt = conn.prepareStatement(Query.GET_MEMBERNUMBER)) {
+	        pstmt.setString(1, userId);
+	        try (ResultSet rs = pstmt.executeQuery()) {
+	            if (rs.next()) {
+	                memberNumber = rs.getString("member_number");
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return memberNumber;
+	}
 }

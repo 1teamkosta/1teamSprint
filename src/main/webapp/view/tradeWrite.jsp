@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>자유수다</title>
+	<title>중고거</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=explore_nearby"/>
 
 		
@@ -28,8 +28,8 @@
               <h2 class="tilte">거래 글쓰기</h2>
             </div>
             <div class="inputTitle titleprice">
-            	<input class="priceTitle" placeholder="  제목을 입력해 주세요.">
-            	<input class="priceInput" placeholder="  가격">
+<input class="priceTitle" name="title" value="${fix.title}" placeholder="  제목을 입력해 주세요.">
+<input class="priceInput" name="price" value="${fix.price}" placeholder="  가격">
 			</div>
 					<%@ include file="../common/write.jsp" %>
 							<!-- 등록 -->
@@ -47,6 +47,14 @@
 
 
 <script>
+window.addEventListener('DOMContentLoaded', function() {
+    <c:if test="${not empty fix.content}">
+        if (typeof quill !== 'undefined') {
+            quill.root.innerHTML = `${fix.content}`;
+        }
+    </c:if>
+});
+
 function getTitleContentData() {
 
     const title = document.querySelector('[name="title"]').value;
@@ -62,11 +70,11 @@ function getTitleContentData() {
 function addTrade() {
 	const data = getTitleContentData();
 	
-	location.href = "${pageContext.request.contextPath}/Controller?cmd=addTrade" 
+	location.href = "${pageContext.request.contextPath}/Controller?cmd=addTradeAction" 
         + "&title=" + encodeURIComponent(data.title) 
         + "&price=" + encodeURIComponent(data.price) 
         + "&content=" + encodeURIComponent(data.content);
-}}
+}
 function setTrade() {
 	const data = getTitleContentData();
 	
