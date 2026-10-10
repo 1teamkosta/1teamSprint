@@ -22,9 +22,9 @@ public class DeleteReplyAction implements Action {
 		
 		service.deleteTradeReply(replyNumber);
 		
-		request.setAttribute("trade", service.getTrade(tradeNumber));
+		request.setAttribute("url", "Controller?cmd=viewTrade&tradeNumber=" + tradeNumber);
 		
-		return "view/bizTradingDetails.jsp";
+		return "view/redirect.jsp";
 	}
 
 }
