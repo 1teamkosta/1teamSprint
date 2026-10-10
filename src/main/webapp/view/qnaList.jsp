@@ -22,7 +22,7 @@
           <div>
             <div class="bodyWrapHader">
               <h2 class="tilte">Q&A</h2>
-              <button class="writeBtn">작성하기</button>
+              <a href="Controller?cmd=addQnaUI" class="writeBtn">작성하기</a>
             </div>
 
             <table class="boardList">
@@ -38,7 +38,7 @@
 			<c:forEach items="${listQnA}" var="qna">
 				<tr>
 					<td>${qna.statement}</td>
-					<td><a href="controller?cmd=qnaUIAction&questionNum=${qna.questionNumber}">${qna.title}</a></td>
+					<td><a href="Controller?cmd=qnaUI&questionNumber=${qna.questionNumber}">${qna.title}</a></td>
 					<td>${qna.nickname}</td>
 					<td>${qna.writeDate.substring(0, 10)}</td>
 					<td>${qna.viewCount}</td>

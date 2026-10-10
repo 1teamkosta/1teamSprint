@@ -14,13 +14,13 @@ public class QnAUIAction implements Action {
 	
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
-		//String questionNumber = request.getParameter(questionNumber);
 		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
+		String questionNumber = request.getParameter("questionNumber");
 		QnAService service = new QnAService();
 		String memberNumber = "M1";
-		String questionNumber = "Q9";
 		
 		service.addViewCount(memberNumber, questionNumber);
+		
 		
 		request.setAttribute("question", service.getQnA(questionNumber));
 		request.setAttribute("answer", service.getAnswer(questionNumber));

@@ -16,7 +16,9 @@ public class SetQnaAction implements Action {
 		String content = request.getParameter("content");
 		new QnAService().setQnA(questionNumber, title, content);
 		
-		return "view/qna.jsp";
+		request.setAttribute("url", "Controller?cmd=qnaUI&questionNumber="+ questionNumber);
+		
+		return "view/redirect.jsp";
 	}
 
 }

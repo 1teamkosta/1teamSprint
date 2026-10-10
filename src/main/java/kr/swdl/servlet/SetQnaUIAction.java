@@ -16,7 +16,7 @@ public class SetQnaUIAction implements Action {
 
         request.setAttribute("fix",new QnAService().getQnA(questionNumber));
         
-		return "view/QnAWrite.jsp";
+		return "view/qnaWrite.jsp";
 	}
 
 }

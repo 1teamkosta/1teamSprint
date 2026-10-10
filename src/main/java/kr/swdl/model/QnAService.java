@@ -207,14 +207,14 @@ public class QnAService {
 		return null;
 	}
 
-	public boolean addQnA(String memberNumber, String title, String content) {
+	public String addQnA(String memberNumber, String title, String content) {
 
 		try {
 			return new QnADAO(DBCP.getConnection()).addQnA(memberNumber, title, content);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	public boolean setQnA(String questionNumber, String title, String content) { // title, content 추가...

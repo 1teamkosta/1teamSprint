@@ -14,11 +14,9 @@ public class DeleteQnaAction implements Action {
 		String questionNumber = request.getParameter("questionNumber");
 		new QnAService().deleteQnA(questionNumber);
 		
-		QnAService service = new QnAService();
-		request.setAttribute("question", service.getQnA(questionNumber));
-		request.setAttribute("answer", service.getAnswer(questionNumber));
+		request.setAttribute("url", "Controller?cmd=qnaListAction&page=1");
 		
-		return "view/bizMain.jsp"; //qnalist로 넘겨야됨
+		return "view/redirect.jsp";
 	}
 
 }
