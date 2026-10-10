@@ -29,7 +29,7 @@ public class LoginAction implements Action {
 			session.setAttribute("loginOK", userId);
 			session.setAttribute("loginName", name);
 			session.setAttribute("memberNumber", memberNumber);//추가 
-			url = "view/bizMain.jsp"; 
+			url = "Controller?cmd=homeUIAction"; 
 		}else {
 			 session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			 url = "view/login.jsp"; 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <!DOCTYPE html>
 <html>
@@ -18,24 +19,23 @@
 		<%@ include file="../common/sideNav.jsp" %>
 		
         <div class="product-gridmain">
-
+<!--
             <table class="boardListmain">
               <tr class="tableTr">
-                <th><a href="#">공지사항</a></th>
+                  <th><a href="#">공지사항</a></th>
               </tr>
               <td>
                 <span class="boardTitle-textlimit">아프리카 사장이다 이용수칙</span>
               </td>
               <td>3094</td>
             </table>
-
             <table class="boardListmain">
               <tr class="tableTr">
                 <th colspan="2"><a href="#">장사Tip</a></th>
               </tr>
               <tr>
               <td class="titleBox">
-                <span class="boardTitle-textlimit">오픈 초기 마케팅 비용아끼지 마세요</span>
+                <<span class="boardTitle-textlimit">오픈 초기 마케팅 비용아끼지 마세요</span>
                 <span class="commentCount">[21]</span>
               </td>
               <td class="viewsBox">1615</td>
@@ -48,18 +48,42 @@
               <td class="viewsBox">867</td>
               </tr>
             </table>
+-->
 
             <table class="boardListmain">
               <tr class="tableTr">
-                <th><a href="#">Q&A</a></th>
+                <th><a href="Controller?cmd=qnaListAction&page=1">Q&A</a></th>
+                              <c:forEach var="qna" items="${listQnA}">
+                
               </tr>
               <td>
-                <span class="boardTitle-textlimit">소상공인 대출 질문있습니다</span>
+              <a href="Controller?cmd=qnaUI&questionNumber=${qna.questionNumber}">
+                <span class="boardTitle-textlimit">${qna.title}</span>
               </td>
-              <td class="viewBox">123</td>
+              
+              <td class="viewBox">${qna.viewCount}</td>
+                  </c:forEach>
+              
             </table>
 
+
             <table class="boardListmain">
+              <tr class="tableTr">
+                <th><a href="Controller?cmd=tradeListUI&page=1">중고거래</a></th>
+              </tr>
+              <c:forEach var="trade" items="${tradeList}">
+        <tr>
+            <td class="titleBox">
+            	<a href="Controller?cmd=viewTrade&tradeNumber=${trade.tradeNumber}">
+                <span class="boardTitle-textlimit">${trade.title}</span>
+                <span class="commentCount">${trade.replyCount}</span>
+            </td>
+            <td class="viewBox">${trade.viewCount}</td>
+        </tr>
+    </c:forEach>
+            </table>
+<!--
+<table class="boardListmain">
               <tr class="tableTr">
                 <th><a href="#">동네소식</a></th>
               </tr>
@@ -68,7 +92,8 @@
                 <span class="commentCount">[7]</span>
               </td>
               <td class="viewBox">452</td>
-            </table>
+            </table>-->
+            
 
         </div>
           
