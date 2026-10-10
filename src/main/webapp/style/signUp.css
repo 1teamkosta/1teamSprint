@@ -169,3 +169,8 @@ body {
 .signup-cancel-btn:hover {
     background-color: #f5f5f5;
 }
+
+/*중복체크*/
+#nicknameResult, #idResult, #passwordResult{
+	margin-left: 120px;
+}
