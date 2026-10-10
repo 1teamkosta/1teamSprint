@@ -12,16 +12,19 @@ public class ActionFactory {
 		case "addTradeAction":
 			a = new AddTradeAction();
 			break;
+			
 		case "deleteTrade":
-			a=new DeleteTradeAction();
+			a=new deleteTradeAction();
 			break;
 
 		case "tradeWriteUIAction":
 			a= new TradeWriteUIAction();
 			break;
+			
 		case "viewTrade":
 			a= new ViewTradeUIAction();
 			break;
+			
 		case "viewQnA":
 			a = new ViewQnAUIAction();
 			break;
@@ -52,10 +55,6 @@ public class ActionFactory {
         
 		case "deleteReplyAction":
 			a = new DeleteReplyAction();
-			break;
-			
-		case "bizMainUIAction":
-			a= new bizMainUIAction();
 			break;
         
 		case "idCheck":
