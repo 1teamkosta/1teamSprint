@@ -30,7 +30,7 @@
           <div class="bord">
             <div class="boardTitle">중고거래</div>
             <ul>
-              <li class="bordCard"><a href="#">중고거래</a></li>
+              <li class="bordCard"><a href="Controller?cmd=tradeListUI&page=1">중고거래</a></li>
             </ul>
           </div>
 

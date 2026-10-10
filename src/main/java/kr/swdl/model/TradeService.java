@@ -2,6 +2,7 @@ package kr.swdl.model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class TradeService {
 	public boolean addTradeViewCount(String tradeNumber, String memberNumber) {
@@ -56,7 +57,7 @@ public class TradeService {
 		return vo;
 	}
 	
-	public boolean addTrade(String memberNumber, String mainImage, String title, int price, String content) {
+	public boolean addTrade(String mainImage, String title, int price, String content, String memberNumber) {
 		boolean result = false;
 		Connection conn = null;
 
@@ -64,8 +65,8 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).addTrade(memberNumber, mainImage, title, price, content);
-
+			new TradeDAO(conn).addTrade(mainImage, title, price, content ,memberNumber);
+			result = true;//추가
 			conn.commit();
 		} catch (SQLException e) {
 			try { if(conn != null) conn.rollback(); }
@@ -112,7 +113,7 @@ public class TradeService {
 		return result;
 	}
 	
-	public boolean setTrade(String tradeNumber, String mainImage, String title, int price, String content) {
+	public boolean setTrade(String mainImage, String title, int price, String content, String tradeNumber) {
 		boolean result = false;
 		Connection conn = null;
 
@@ -120,7 +121,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).setTrade(tradeNumber, mainImage, title, price, content);
+			new TradeDAO(conn).setTrade(mainImage, title, price, content,tradeNumber);
 
 			conn.commit();
 		} catch (SQLException e) {
@@ -223,4 +224,56 @@ public class TradeService {
 
 		return result;
 	}
+	 
+	public List<ReplyVO> getTradeReply(String tradeNumber) {
+
+	    Connection conn = null;
+
+	    try {
+	        conn = DBCP.getConnection();
+
+	        TradeDAO dao = new TradeDAO(conn);
+
+	        return dao.getTradeReply(tradeNumber);
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return null;
+	}
+	/*public List<ReplyVO> getReply(String tradeNumber){
+		boolean result = false;
+		Connection conn = null;
+		try {
+			conn = DBCP.getConnection();
+			conn.setAutoCommit(false); 
+			new TradeDAO(conn).getTradeReply(tradeNumber);
+			conn.commit();
+		} catch (SQLException e) {
+			try { if(/*nn != null) conn.rollback(); }
+			catch (SQLException ex) {ex.printStackTrace();}
+			e.printStackTrace();
+		} finally {
+			try { 
+				if(conn != null) { 
+					conn.setAutoCommit(true);
+					conn.close(); 
+				}
+			}
+			catch (SQLException e) {e.printStackTrace();}
+		}
+
+		
+		return null;
+		
+	}*/
 }
