@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.TradeService;
 
-public class deleteTradeAction implements Action {
+public class DeleteTradeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
@@ -15,10 +15,10 @@ public class deleteTradeAction implements Action {
 
 		String tradeNumber = request.getParameter("tradeNumber");
 
-
-
 		boolean result = service.deleteTrade(tradeNumber);
-
-		return "Controller?cmd=tradeListUI&page=1";}
-
+		
+		request.setAttribute("url", "Controller?cmd=tradeListUI&page=1");
+		
+		return "view/redirect.jsp";
+		}
 }

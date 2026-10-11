@@ -15,8 +15,9 @@ public class TradeAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 		
-		String tradeNumber = "T5";
+		String tradeNumber = "T7";
 		//String tradeNumber = request.getParameter(tradeNumber);
+		request.getSession().setAttribute("memberNumber", "M17");
 		request.setAttribute("trade", new TradeService().getTrade(tradeNumber));
 		
 		return "view/bizTradingDetails.jsp";
