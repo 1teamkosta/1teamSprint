@@ -15,6 +15,9 @@ public class TradeVO {
 	private int replyCount;
 	private List<ReplyVO> reply;
 	
+	public TradeVO(String tradeNumber, String mainImage, String title, String nickname, String writeDate, int viewCount, int price, int replyCount) {
+	    this(tradeNumber, null, mainImage, title, nickname, writeDate, viewCount, price, null, replyCount, null);
+	}
 	public TradeVO(String tradeNumber, String mainImage, String title, String nickname, String writeDate, int viewCount, int price) {
 		this(tradeNumber, null, mainImage, title, nickname, writeDate, viewCount, price, null, 0, null);
 	}

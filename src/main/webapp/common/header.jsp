@@ -6,7 +6,7 @@
 		<span class="material-symbols-outlined"> explore_nearby </span> 
 		<span>금천구 가산동</span>
 	</div>
-	<div class="logo">아프리카 사장이다</div>
+	<div class="logo"><a href="Controller?cmd=homeUIAction">아프리카 사장이다.</a></div>
 	<div class="header-right">
 		<div class="name">
 			<spqn class="data-name">임사장</spqn>
