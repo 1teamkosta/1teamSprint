@@ -41,7 +41,7 @@ public class ActionFactory {
 			a= new SetTradeAction();
 			break;
 			
-		case "deleteTradeAction":
+		case "deleteTrade":
 			a = new DeleteTradeAction();
 			break;
         
@@ -120,7 +120,10 @@ public class ActionFactory {
 		case "tradeListUI":
 			a=new TradeListUIAction();
 			break;
-        
+		case "homeUIAction":
+			a=new HomeUIAction();
+			break;
+			
 		case "":
 		default :
 			a=new MainUIAction();			
