@@ -42,7 +42,7 @@ public class ActionFactory {
 			break;
 			
 		case "deleteTrade":
-			a = new deleteTradeAction();
+			a = new DeleteTradeAction();
 			break;
         
 		case "addReplyAction":
