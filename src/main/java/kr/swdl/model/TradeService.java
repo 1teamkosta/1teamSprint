@@ -57,16 +57,16 @@ public class TradeService {
 		return vo;
 	}
 	
-	public String addTrade(String mainImage, String title, int price, String content, String memberNumber) {
-		String tradeNum = null;
+	public boolean addTrade(String mainImage, String title, int price, String content, String memberNumber) {
+		boolean result = false;
 		Connection conn = null;
 
 		try {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			tradeNum = new TradeDAO(conn).addTrade(mainImage, title, price, content ,memberNumber);
-			
+			new TradeDAO(conn).addTrade(mainImage, title, price, content ,memberNumber);
+			result = true;//추가
 			conn.commit();
 		} catch (SQLException e) {
 			try { if(conn != null) conn.rollback(); }
@@ -82,7 +82,7 @@ public class TradeService {
 			catch (SQLException e) {e.printStackTrace();}
 		}
 
-		return tradeNum;
+		return result;
 	}
 	
 	public boolean deleteTrade(String tradeNumber) {

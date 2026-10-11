@@ -12,7 +12,7 @@ public class SetTradeAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
 		TradeService service = new TradeService();
-
+		
 		//String memberNumber = (String) request.getSession().getAttribute("memberNumber");
 		String mainImage = request.getParameter("mainImage");
 		String title = request.getParameter("title");
@@ -21,21 +21,19 @@ public class SetTradeAction implements Action {
 		String tradeNumber = request.getParameter("tradeNumber");
 
 		if (mainImage == null || mainImage.trim().isEmpty()) {
-			mainImage = "default.jpg"; // 또는 DB에 지정할 기본 이미지파일명
+		    mainImage = "default.jpg"; // 또는 DB에 지정할 기본 이미지파일명
 		}
 		int price;
 		try {
-			price = Integer.parseInt(priceStr);
+		    price = Integer.parseInt(priceStr);
 		} catch (NumberFormatException e) {
-			return null;
+		    return null;
 		}
 
 		boolean result = service.setTrade(mainImage, title, price, content, tradeNumber);
-
-		request.setAttribute("url", "Controller?cmd=viewTrade&tradeNumber=" + tradeNumber);
-
-		return "view/redirect.jsp";	
-	}
+				
+		
+		return "Controller?cmd=viewTrade&tradeNumber=" + tradeNumber;	}
 
 
 }

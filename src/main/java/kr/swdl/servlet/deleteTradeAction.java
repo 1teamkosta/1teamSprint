@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.swdl.model.TradeService;
 
-public class deleteTradeAction implements Action {
+public class DeleteTradeAction implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request) throws ServletException, IOException {
