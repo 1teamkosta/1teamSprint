@@ -75,8 +75,10 @@
         <tr>
             <td class="titleBox">
             	<a href="Controller?cmd=viewTrade&tradeNumber=${trade.tradeNumber}">
-                <span class="boardTitle-textlimit">${trade.title}</span>
-                <span class="commentCount">${trade.replyCount}</span>
+                            <span class="boardTitle-textlimit">${trade.title}</span>
+                        </a>
+                        <span class="commentCount">[${trade.replyCount}]</span>
+                    </td>
             </td>
             <td class="viewBox">${trade.viewCount}</td>
         </tr>
