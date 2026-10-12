@@ -25,6 +25,7 @@ public class TradeVO {
 			int viewCount, int price, String content, int replyCount, List<ReplyVO> reply) {
 		setTradeNumber(tradeNumber);
 		setMemberNumber(memberNumber);
+		setMainImage(mainImage);
 		setTitle(title);
 		setWriteDate(writeDate);
 		setNickname(nickname);

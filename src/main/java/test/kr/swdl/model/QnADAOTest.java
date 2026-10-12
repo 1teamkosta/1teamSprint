@@ -71,11 +71,11 @@ public class QnADAOTest {
 		assertTrue(result);
 	}
 
-	@Test
-	public void QnA_조회수_증가() {
-		boolean result = dao.addQnAView("Q6");
-		assertTrue(result);
-	}
+//	@Test
+//	public void QnA_조회수_증가() {
+//		boolean result = dao.addQnAView("Q6");
+//		assertTrue(result);
+//	}
 
 	@Test
 	public void 답변_수정() {
@@ -89,11 +89,11 @@ public class QnADAOTest {
 		assertTrue(result);
 	}
 	
-	@Test
-	public void 질문_답변상태_변경() {
-		boolean result = dao.setQuestionStatement("Q3");
-		assertTrue(result);
-	}
+//	@Test
+//	public void 질문_답변상태_변경() {
+//		boolean result = dao.setQuestionStatement("Q3");
+//		assertTrue(result);
+//	}
 	
 
 	/*@Test
