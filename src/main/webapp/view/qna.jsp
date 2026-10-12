@@ -116,7 +116,7 @@
 				                <div class="answer-owner-buttons" id="owner-btns-${answer.answerNumber}">
 				                    <!-- 수정 버튼 클릭 시 JS 함수 호출 -->
 				                    <button type="button" class="edit-btn" data-answer-number="${answer.answerNumber}">수정</button>
-				                    <a href="#" class="delete-btn" data-answer-number="${answer.answerNumber}">삭제</a>
+				                    <a href="#" class="delete-btn" data-question-number="${question.questionNumber}" data-answer-number="${answer.answerNumber}">삭제</a>
 				                </div>
 				            </c:if>
 				        </div>

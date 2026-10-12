@@ -36,10 +36,11 @@ if(document.getElementById('del-qna-btn')!==null){
 
 //답글 수정 취소
 
-
-document.getElementById('cencel-btn').addEventListener("click", function() {
-	cancelEdit(this.dataset.answerNumber)
-});
+if(document.getElementById('cencel-btn')!==null){
+	document.getElementById('cencel-btn').addEventListener("click", function() {
+		cancelEdit(this.dataset.answerNumber)
+	});
+}
 
 document.querySelectorAll(".edit-btn").forEach(function(button) {	
     button.addEventListener("click", function() {
@@ -54,7 +55,7 @@ document.querySelectorAll(".delete-btn").forEach(function(button) {
 
         if (confirm("답변을 삭제하시겠습니까?")) {
 
-            location.href ="Controller?cmd=deleteAnswerAction&questionNumber=" + questionNumber + "&answerNumber=" + this.dataset.answerNumber;
+            location.href ="Controller?cmd=deleteAnswerAction&questionNumber=" + this.dataset.questionNumber + "&answerNumber=" + this.dataset.answerNumber;
         }
     });
 });
