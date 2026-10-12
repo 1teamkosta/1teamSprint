@@ -26,7 +26,7 @@ public class TradeListDAO {
 		pstmt.setInt(2, end);
 		ResultSet rs = pstmt.executeQuery();
 		while(rs.next()) {
-			list.add(new TradeVO(rs.getString("trade_number"), rs.getString("main_image"), rs.getString("title"), rs.getString("nickname"), rs.getString("write_date"), rs.getInt("view_count"), rs.getInt("price")));
+			list.add(new TradeVO(rs.getString("trade_number"), rs.getString("main_image"), rs.getString("title"), rs.getString("nickname"), rs.getString("write_date"), rs.getInt("view_count"), rs.getInt("price"),rs.getInt("reply_count")));
 		}
 		rs.close();
 		pstmt.close();

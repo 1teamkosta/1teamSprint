@@ -20,6 +20,8 @@ public class DBCP {
 			dbcp = new DBCP();
 		}
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		// 공용DB
+//		String url = "jdbc:oracle:thin:@211.108.241.157:51521:xe";
 		return DriverManager.getConnection(url, "hr", "hr");
 	}
 }

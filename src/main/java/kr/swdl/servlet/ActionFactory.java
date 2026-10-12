@@ -12,11 +12,7 @@ public class ActionFactory {
 		case "addTradeAction":
 			a = new AddTradeAction();
 			break;
-			
-		case "deleteTrade":
-			a=new deleteTradeAction();
-			break;
-
+					
 		case "tradeWriteUIAction":
 			a= new TradeWriteUIAction();
 			break;
@@ -32,17 +28,21 @@ public class ActionFactory {
 		case "setTrade":
 			a= new SetTradeActionUI();
 			break;
-        
-		case "setTradeAction":
-			a= new SetTradeAction();
-			break;
-        
+        		
 		case "qnaListAction":
 			a = new QnAListAction();
 			break;
 		
 		case "TradeAction":
 			a = new TradeAction();
+			break;
+			
+		case "setTradeAction":
+			a= new SetTradeAction();
+			break;
+			
+		case "deleteTrade":
+			a = new DeleteTradeAction();
 			break;
         
 		case "addReplyAction":
@@ -56,7 +56,6 @@ public class ActionFactory {
 		case "deleteReplyAction":
 			a = new DeleteReplyAction();
 			break;
-        
 		case "idCheck":
 			a = new IdCheckAction();
 			break;
@@ -120,7 +119,10 @@ public class ActionFactory {
 		case "tradeListUI":
 			a=new TradeListUIAction();
 			break;
-        
+		case "homeUIAction":
+			a=new HomeUIAction();
+			break;
+			
 		case "":
 		default :
 			a=new MainUIAction();			
