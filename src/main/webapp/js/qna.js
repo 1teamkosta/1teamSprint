@@ -14,35 +14,36 @@ function cancelEdit(answerNumber) {
 
 
 
-// [질문 수정/삭제 관련 기능]
-const setBtn = document.getElementById('set-qna-btn');
-const questionNumber = setBtn.dataset.questionNumber; // JSP의 값을 읽어옴
+
 
 // 1. 질문 수정 버튼 이벤트
-setBtn.addEventListener("click", function(e) {
-    e.preventDefault(); // # 링크 기본 동작 막기
-    location.href = "Controller?cmd=setQnaUI&questionNumber=" + questionNumber;
-});
+if(document.getElementById('set-qna-btn')!==null){
+	document.getElementById('set-qna-btn').addEventListener("click", function(e) {
+	    e.preventDefault(); // # 링크 기본 동작 막기
+	    location.href = "Controller?cmd=setQnaUI&questionNumber=" + this.dataset.questionNumber;;
+	});
+	}
 
 // 2. 질문 삭제 버튼 이벤트
-document.getElementById('del-qna-btn').addEventListener("click", function(e) {
-    e.preventDefault(); // # 링크 기본 동작 막기
-    if (confirm("정말 이 질문을 삭제하시겠습니까?")) {
-        location.href = "Controller?cmd=deleteQnaAction&questionNumber=" + questionNumber;
-    }
-});
+if(document.getElementById('del-qna-btn')!==null){
+	document.getElementById('del-qna-btn').addEventListener("click", function(e) {
+	    e.preventDefault(); // # 링크 기본 동작 막기
+	    if (confirm("정말 이 질문을 삭제하시겠습니까?")) {
+	        location.href = "Controller?cmd=deleteQnaAction&questionNumber=" + this.dataset.questionNumber;;
+	    }
+	});
+}
 
 //답글 수정 취소
-const cencelBtn = document.getElementById('cencel-btn')
-const answerNumber = cencelBtn.dataset.answerNumber;
 
-cencelBtn.addEventListener("click", function() {
-	cancelEdit(answerNumber)
+
+document.getElementById('cencel-btn').addEventListener("click", function() {
+	cancelEdit(this.dataset.answerNumber)
 });
 
-document.querySelectorAll(".edit-btn").forEach(function(button) {
+document.querySelectorAll(".edit-btn").forEach(function(button) {	
     button.addEventListener("click", function() {
-        toggleEdit(answerNumber);
+        toggleEdit(this.dataset.answerNumber);
     });
 });
 
@@ -53,7 +54,7 @@ document.querySelectorAll(".delete-btn").forEach(function(button) {
 
         if (confirm("답변을 삭제하시겠습니까?")) {
 
-            location.href ="Controller?cmd=deleteAnswerAction&questionNumber=" + questionNumber + "&answerNumber=" + answerNumber;
+            location.href ="Controller?cmd=deleteAnswerAction&questionNumber=" + questionNumber + "&answerNumber=" + this.dataset.answerNumber;
         }
     });
 });
