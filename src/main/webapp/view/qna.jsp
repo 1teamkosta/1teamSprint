@@ -41,14 +41,14 @@
                 <div class="question-content">
                     ${question.content}
                 </div>
-				
+				<c:if test="${question.memberNumber == sessionScope.memberNumber}">
 	                <div class="question-footer">
 	                    <div class="question-owner-buttons">
 					        <a href="#" id="set-qna-btn" data-question-number="${question.questionNumber}" class="edit-btn">수정</a>
-					        <a href="#" id="del-qna-btn" class="delete-btn">삭제</a>
+					        <a href="#" id="del-qna-btn" data-question-number="${question.questionNumber}" class="delete-btn">삭제</a>
 	    				</div>
 	                </div>
-                
+                </c:if>
                 
             </div>
 
@@ -103,22 +103,22 @@
 				
 				        <div class="answer-footer">
 				            <!-- 질문 작성자만 보이는 채택 버튼 -->
-				            
+				            <c:if test="${question.memberNumber == sessionScope.memberNumber}">
 				                <form action="Controller?cmd=adoptAnswerAction" method="post">
 				                    <input type="hidden" name="answerNumber" value="${answer.answerNumber}">
 				                    <input type="hidden" name="questionNumber" value="${question.questionNumber}">
 				                    <button type="submit" class="answer-select-btn">채택</button>
 				                </form>
-				            <c:if test="${question.memberNumber == sessionScope.memberNumber}"></c:if>
+				            </c:if>
 				
 				            <!-- 답변 작성자만 보이는 수정/삭제 버튼 -->
-				            
+				            <c:if test="${answer.memberNumber == sessionScope.memberNumber}">
 				                <div class="answer-owner-buttons" id="owner-btns-${answer.answerNumber}">
 				                    <!-- 수정 버튼 클릭 시 JS 함수 호출 -->
-				                    <button type="button" class="edit-btn">수정</button>
-				                    <a href="#" class="delete-btn">삭제</a>
+				                    <button type="button" class="edit-btn" data-answer-number="${answer.answerNumber}">수정</button>
+				                    <a href="#" class="delete-btn" data-answer-number="${answer.answerNumber}">삭제</a>
 				                </div>
-				            <c:if test="${answer.memberNumber == sessionScope.memberNumber}"></c:if>
+				            </c:if>
 				        </div>
 				    </div>
 				</c:forEach>

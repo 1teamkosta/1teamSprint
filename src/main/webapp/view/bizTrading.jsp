@@ -32,12 +32,15 @@
 						<c:forEach items="${tradingList}" var="trade">
 							<div class="item-card">
 								<div class="image-box">
-								<a href="Controller?cmd=viewTrade&tradeNumber=${trade.tradeNumber}">
-									<img src="테이블.jpg" alt="테이블">
-									<div class="price-box">${trade.price}원</div>
-								</div>
-								<div class="info-box">
-									<div class="item-title">${trade.title}</div>
+									<a
+										href="Controller?cmd=viewTrade&tradeNumber=${trade.tradeNumber}">
+										<img
+										src="${pageContext.request.contextPath}/img/${trade.mainImage}"
+										alt="테이블">
+										<div class="price-box">${trade.price}원</div>
+										</div>
+										<div class="info-box">
+											<div class="item-title">${trade.title}</div>
 									</a>
 									<div class="item-author">${trade.nickname}</div>
 									<div class="item-meta">${trade.writeDate}조회수
@@ -57,8 +60,9 @@
 		</div>
 
 	</div>
-	
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/tradeList.js"></script>
-	
+
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/tradeList.js"></script>
+
 </body>
 </html>

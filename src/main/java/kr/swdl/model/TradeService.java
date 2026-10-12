@@ -94,7 +94,8 @@ public class TradeService {
 			conn.setAutoCommit(false); 
 
 			new TradeDAO(conn).deleteTrade(tradeNumber);
-
+			result = true;
+			
 			conn.commit();
 		} catch (SQLException e) {
 			try { if(conn != null) conn.rollback(); }
@@ -121,7 +122,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).setTrade(mainImage, title, price, content,tradeNumber);
+			result = new TradeDAO(conn).setTrade(mainImage, title, price, content,tradeNumber);
 
 			conn.commit();
 		} catch (SQLException e) {
@@ -149,7 +150,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).addTradeReply(tradeNumber, memberNumber, content);
+			result = new TradeDAO(conn).addTradeReply(tradeNumber, memberNumber, content);
 
 			conn.commit();
 		} catch (SQLException e) {
@@ -177,7 +178,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).setTradeReply(replyNumber, content);
+			result = new TradeDAO(conn).setTradeReply(replyNumber, content);
 
 			conn.commit();
 		} catch (SQLException e) {
@@ -205,7 +206,7 @@ public class TradeService {
 			conn = DBCP.getConnection();
 			conn.setAutoCommit(false); 
 
-			new TradeDAO(conn).deleteTradeReply(replyNumber);
+			result = new TradeDAO(conn).deleteTradeReply(replyNumber);
 
 			conn.commit();
 		} catch (SQLException e) {

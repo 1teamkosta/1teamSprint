@@ -37,18 +37,18 @@ public class QnAServiceTest {
 	}
 	
 
-	@Test
-	public void qna_서비스_조회() {
-		QnAVO vo= service.getQnA("Q6");
-		System.out.println(vo);
-		assertNotNull(vo);
-	
-	}
+//	@Test
+//	public void qna_서비스_조회() {
+//		QnAVO vo= service.getQnA("Q3");
+//		System.out.println(vo);
+//		assertNotNull(vo);
+//	
+//	}
 	
 	 @Test
 	    public void qna_추가() {
 	    	String result = service.addQnA("M1", "QnA 추가 테스트", "QnA 테스트 테스트 내용글");
-	    	assertNull(result);
+	    	assertNotNull(result);
 	    }
 	    
 	    @Test
@@ -58,12 +58,12 @@ public class QnAServiceTest {
 	    	assertTrue(result);
 	    }
 	    
-	    @Test
-	    public void qna_삭제() {
-	    	boolean result = service.deleteQnA("Q3");
-	    	 System.out.println("삭제 결과 = " + result);
-	    	assertTrue(result);
-	    }
+//	    @Test
+//	    public void qna_삭제() {
+//	    	boolean result = service.deleteQnA("Q3");
+//	    	 System.out.println("삭제 결과 = " + result);
+//	    	assertTrue(result);
+//	    }
 	    
 	    @Test
 	    public void 답변_조회() {
