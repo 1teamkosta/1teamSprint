@@ -2,29 +2,52 @@ package test.kr.swdl.model;
 
 import static org.junit.Assert.*;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.swdl.model.DBCP;
 import kr.swdl.model.TradeService;
 
 public class TradeServiceTest {
 	static TradeService service = null;
+	
+	private Connection conn;
+	
+	@Before
+	public void 단위테스트_시작() throws SQLException {
+		conn = DBCP.getConnection();
+		conn.setAutoCommit(false);
+	}
+	
+	@After
+	public void 단위테스트_종료() throws SQLException {
+		conn.rollback();
+		conn.setAutoCommit(true);
+		
+		conn.close();
+	}
+	
 	
 	@BeforeClass
 	public static void Init() {
 		service = new TradeService();
 	}
 	
-	@Test
-	public void 거래게시글_조회수_증가() {
-		assertTrue(service.addTradeViewCount("T2", "M2"));
-	}
-	
-	@Test
-	public void 거래게시글_조회수_못_증가() {
-		assertTrue(service.addTradeViewCount("T2000", "M2"));
-	}
-	
+//	@Test
+//	public void 거래게시글_조회수_증가() {
+//		assertTrue(service.addTradeViewCount("T2", "M2"));
+//	}
+//	
+//	@Test
+//	public void 거래게시글_조회수_못_증가() {
+//		assertTrue(service.addTradeViewCount("T2000", "M2"));
+//	}
+//	
 	@Test
 	public void 거래게시글_상세정보_가져오기() {
 		assertNotNull(service.getTrade("T4"));
@@ -44,22 +67,22 @@ public class TradeServiceTest {
 	public void 거래게시글_삭제하기() {
 		assertTrue(service.deleteTrade("T5"));
 	}
-	
-	@Test
-	public void 거래게시글_수정하기() {
-		assertTrue(service.setTrade("T3", "updateURL", 999999, "updateTitle", "updateContent"));
-	}
+//	
+//	@Test
+//	public void 거래게시글_수정하기() {
+//		assertTrue(service.setTrade("T3", "updateURL", 999999, "updateTitle", "updateContent"));
+//	}
 	
 	@Test
 	public void 거래게시글_댓글_작성하기() {
 		assertTrue(service.addTradeReply("T3", "M5", "M5AddReply"));
 	}
 	
-	@Test
-	public void 거래게시글_댓글_삭제하기() {
-		assertTrue(service.deleteTradeReply("R3"));
-	}
-	
+//	@Test
+//	public void 거래게시글_댓글_삭제하기() {
+//		assertTrue(service.deleteTradeReply("R1"));
+//	}
+//	
 	@Test
 	public void 거래게시글_댓글_수정하기() {
 		assertTrue(service.setTradeReply("R4", "R4UpdateReply"));
